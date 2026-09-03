@@ -18,26 +18,27 @@ export default function Footer() {
                   className="object-contain"
                 />
               </div>
-              <span className="text-lg font-bold text-white">আলোর ভুবন পাঠাগার</span>
+              <span className="text-lg font-bold text-purple-400">আলোর ভুবন পাঠাগার</span>
             </div>
             <p className="text-sm text-slate-400 max-w-xs">
-              জ্ঞানের আলো ছড়িয়ে দিতে এবং গ্রামের পাঠকদের মধ্যে পড়ার অভ্যাস গড়ে তুলতে আমাদের এই ক্ষুদ্র প্রয়াস।
+              জ্ঞানের আলো ছড়িয়ে দিতে এবং গ্রামের পাঠকদের মধ্যে পড়ার অভ্যাস গড়ে তুলতে আমাদের এই ক্ষুদ্র প্রয়াস।
             </p>
           </div>
 
           {/* কলাম ২: দ্রুত লিংকসমূহ */}
           <div className="flex flex-col space-y-2">
-            <h4 className="text-white font-semibold mb-1">দ্রুত লিংক</h4>
-            <Link href="/" className="text-sm hover:text-emerald-400 transition-colors">হোম</Link>
-            <Link href="/books" className="text-sm hover:text-emerald-400 transition-colors">বইয়ের তালিকা</Link>
-            <Link href="/notices" className="text-sm hover:text-emerald-400 transition-colors">নোটিশ বোর্ড</Link>
+            <h4 className="text-white font-semibold mb-1">গুরুত্বপূর্ণ লিংক</h4>
+            <Link href="/" className="text-sm hover:text-purple-400 transition-colors">হোম</Link>
+            <Link href="/books" className="text-sm hover:text-purple-400 transition-colors">বইয়ের তালিকা</Link>
+            <Link href="/notices" className="text-sm hover:text-purple-400 transition-colors">নোটিশ বোর্ড</Link>
+            <Link href="/emergency-contacts" className="text-sm hover:text-purple-400 transition-colors">জরুরি নম্বরসমূহ</Link>
           </div>
 
           {/* কলাম ৩: যোগাযোগ তথ্য */}
           <div className="flex flex-col space-y-2">
             <h4 className="text-white font-semibold mb-1">যোগাযোগ</h4>
-            <p className="text-sm text-slate-400">গ্রাম: আপনার গ্রামের নাম, থানা, জেলা</p>
-            <p className="text-sm text-slate-400">ইমেইল: info@alorbhubon.com</p>
+            <p className="text-sm text-slate-400">পারগয়রা, গোবিন্দগঞ্জ, গাইবান্ধা</p>
+            <p className="text-sm text-slate-400">ইমেইল: alorvubonpathagar@gmail.com</p>
             <p className="text-sm text-slate-400">ফোন: +৮৮০ ১XXXXXXXXX</p>
           </div>
 
