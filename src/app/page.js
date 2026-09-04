@@ -3,6 +3,7 @@ import HeroSection from "./component/HeroSection";
 import PopularBooks from "./component/PopularBooks";
 import PresidentSecretary from "./component/PresidentSecretary";
 import StatsSection from "./component/StatsSection";
+import AboutUs from "./component/AboutUs.jsx";
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <FeaturesSection />
       {/* <StatsSection /> */}
       <PresidentSecretary></PresidentSecretary>
+      <AboutUs></AboutUs>
     </div>
   );
 }
