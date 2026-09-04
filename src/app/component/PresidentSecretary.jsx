@@ -1,44 +1,39 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Users, X, Award, ShieldCheck } from "lucide-react";
+import { Users, X, Award, ArrowRight } from "lucide-react";
 import FullCommittee from "./FullCommittee";
 
 export default function PresidentSecretary() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // আরও বেশি প্রফেশনাল এবং ফরমাল লুকের ছবিসহ ডেটা
   const leaders = [
     {
       role: "সভাপতি",
-      name: "মোঃ রাশেদ মিয়া",
-      desc: "শিক্ষা ও সাহিত্য অনুরাগী, প্রতিষ্ঠাতা ও প্রধান উপদেষ্টা।",
+      name: "মোঃ রাশেদ মিয়া",
+      desc: "শিক্ষা ও সাহিত্য অনুরাগী, প্রতিষ্ঠাতা ও প্রধান উপদেষ্টা",
       image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop"
     },
     {
       role: "সাধারণ সম্পাদক",
       name: "মোঃ ইমরান",
-      desc: "সমাজকর্মী ও তরুণ সংগঠক, পাঠাগার পরিচালনা পর্ষদ।",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop" // অত্যন্ত প্রফেশনাল ও ফরমাল লুক
+      desc: "সমাজকর্মী ও তরুণ সংগঠক, পাঠাগার পরিচালনা পর্ষদ",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
     }
   ];
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950 border-b border-slate-900 relative">
-      <div className="max-w-7xl mx-auto space-y-12">
+    <section className="py-12 sm:py-20 px-3 sm:px-6 lg:px-8 bg-slate-950 border-b border-slate-900 relative">
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-12">
 
         {/* সেকশন হেডার */}
-        <div className="text-center space-y-3">
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-            কার্যনির্বাহী <span className="text-purple-400">পরিষদ</span>
-          </h2>
-          <p className="text-slate-400 max-w-xl mx-auto text-sm sm:text-base">
-            যাঁদের প্রজ্ঞায় ও পরিশ্রমে আলোর ভুবন পাঠাগার এগিয়ে চলেছে সামনের দিকে।
-          </p>
+        <div className="text-center mb-6 sm:mb-12 space-y-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">কার্যনির্বাহী <span className="text-purple-400">পরিষদ</span></h2>
+          <p className="text-white text-xs sm:text-base px-2">যাঁদের প্রজ্ঞায় ও পরিশ্রমে আলোর ভুবন পাঠাগার এগিয়ে চলেছে সামনের দিকে</p>
         </div>
 
         {/* প্রেসিডেন্ট ও সেক্রেটারি কার্ড */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-4xl mx-auto">
           {leaders.map((leader, index) => (
             <motion.div
               key={index}
@@ -48,37 +43,39 @@ export default function PresidentSecretary() {
               transition={{
                 duration: 1.0,
                 delay: index * 0.3,
-                ease: [0.25, 0.1, 0.25, 1.0] // আরও সফট এবং স্মুথ ইজিং কার্ভ
+                ease: [0.25, 0.1, 0.25, 1.0]
               }}
-              className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 shadow-xl backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300"
+              className="bg-slate-900/60 border border-slate-800 rounded-xl sm:rounded-2xl p-3 sm:p-6 flex flex-col sm:flex-row items-center gap-3 sm:gap-6 shadow-xl backdrop-blur-sm hover:border-purple-500/50 transition-all duration-300"
             >
               <img
                 src={leader.image}
                 alt={leader.name}
-                className="w-28 h-28 rounded-xl object-cover border-2 border-purple-500/30 shadow-md"
+                className="w-16 h-16 sm:w-28 sm:h-28 rounded-lg sm:rounded-xl object-cover border-2 border-purple-500/30 shadow-md shrink-0"
               />
-              <div className="text-center sm:text-left space-y-2">
-                <span className="inline-block px-3 py-1 bg-purple-950/80 text-purple-300 text-xs font-semibold rounded-full border border-purple-800/40">
+              <div className="text-center sm:text-left space-y-1 sm:space-y-2 w-full">
+                <span className="inline-block px-2 py-0.5 sm:px-3 sm:py-1 bg-purple-950/80 text-purple-300 text-[10px] sm:text-xs font-semibold rounded-full border border-purple-800/45">
                   {leader.role}
                 </span>
-                <h3 className="text-xl font-bold text-white">{leader.name}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{leader.desc}</p>
+                <h3 className="text-xs sm:text-xl font-bold text-white leading-tight">{leader.name}</h3>
+
+                {/* পার্পল কালার সেপারেটর বা ডিভাইডার */}
+                <div className="w-8 sm:w-12 h-[2px] bg-purple-500/60 rounded-full mx-auto sm:mx-0 my-1 sm:my-2"></div>
+
+                {/* ডেসক্রিপশন */}
+                <p className="text-white text-[10px] sm:text-sm leading-relaxed">{leader.desc}</p>
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* ফুল কমিটি দেখার বাটন */}
-        <div className="text-center pt-4">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+        {/* পূর্ণাঙ্গ কমিটি দেখার লিংক */}
+        <div className="flex justify-center pt-2 sm:pt-4">
+          <button
             onClick={() => setIsModalOpen(true)}
-            className="inline-flex items-center gap-2 bg-violet-600 hover:bg-violet-700 text-white px-8 py-3.5 rounded-xl font-semibold shadow-lg shadow-violet-900/30 transition-all cursor-pointer"
+            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-xs sm:text-base lg:text-lg transition-colors group cursor-pointer"
           >
-            <Users size={20} />
-            পূর্ণাঙ্গ পরিষদ দেখুন
-          </motion.button>
+            পূর্ণাঙ্গ পরিষদ দেখুন <ArrowRight size={14} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
 
       </div>

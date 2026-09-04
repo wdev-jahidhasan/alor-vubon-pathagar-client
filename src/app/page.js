@@ -1,4 +1,4 @@
-import FeaturesSection from "./component/FeaturesSection";
+import FeaturesSection from "./component/OurActivities.jsx.jsx";
 import HeroSection from "./component/HeroSection";
 import PopularBooks from "./component/PopularBooks";
 import PresidentSecretary from "./component/PresidentSecretary";
@@ -11,7 +11,7 @@ export default function Home() {
       <HeroSection />
       <PopularBooks></PopularBooks>
       <FeaturesSection />
-      <StatsSection />
+      {/* <StatsSection /> */}
       <PresidentSecretary></PresidentSecretary>
     </div>
   );
