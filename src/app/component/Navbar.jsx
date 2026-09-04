@@ -8,7 +8,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-slate-950 text-white shadow-md border-b border-slate-800 sticky top-0 z-50">
+    <header className="bg-slate-950 text-white shadow-md border-b border-slate-800 sticky top-0 z-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
         <div className="flex items-center">
