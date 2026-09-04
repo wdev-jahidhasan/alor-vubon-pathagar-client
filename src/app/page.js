@@ -1,9 +1,9 @@
-import FeaturesSection from "./component/OurActivities.jsx.jsx";
 import HeroSection from "./component/HeroSection";
 import PopularBooks from "./component/PopularBooks";
 import PresidentSecretary from "./component/PresidentSecretary";
-import StatsSection from "./component/StatsSection";
 import AboutUs from "./component/AboutUs.jsx";
+import RecentEvents from "./component/RecentEvents.jsx";
+import OurActivities from "./component/OurActivities.jsx.jsx";
 
 
 export default function Home() {
@@ -11,8 +11,8 @@ export default function Home() {
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
       <HeroSection />
       <PopularBooks></PopularBooks>
-      <FeaturesSection />
-      {/* <StatsSection /> */}
+      <OurActivities></OurActivities>
+      <RecentEvents></RecentEvents>
       <PresidentSecretary></PresidentSecretary>
       <AboutUs></AboutUs>
     </div>
