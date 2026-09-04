@@ -5,7 +5,7 @@ export default function FullCommittee() {
     {
       role: "সভাপতি",
       name: "মোঃ রাশেদ মিয়া",
-      desc: "শিক্ষা ও সাহিত্য অনুরাগী, প্রতিষ্ঠাতা ও প্রধান উপদেষ্টা",
+      // desc: "শিক্ষা ও সাহিত্য অনুরাগী, আলোর ভুবন পাঠাগার- এর প্রতিষ্ঠাতা",
       phone: "০১৭০০-০০০০০৯",
       email: "rashed@example.com",
       image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop"
@@ -13,7 +13,7 @@ export default function FullCommittee() {
     {
       role: "সাধারণ সম্পাদক",
       name: "মোঃ ইমরান",
-      desc: "সমাজকর্মী ও তরুণ সংগঠক, পাঠাগার পরিচালনা পর্ষদ",
+      // desc: "সমাজকর্মী ও তরুণ সংগঠক, পাঠাগার পরিচালনা পর্ষদ",
       phone: "০১৭০০-০০০০১০",
       email: "imran@example.com",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop"
