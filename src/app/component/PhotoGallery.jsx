@@ -172,14 +172,14 @@ export default function PhotoGallery() {
         </div>
 
         {/* সব ছবি দেখুন বাটন */}
-        <div className="flex justify-center pt-2 sm:pt-4">
+        {/* <div className="flex justify-center pt-2 sm:pt-4">
           <Link
             href="/gallery"
             className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-xs sm:text-base lg:text-lg transition-colors group"
           >
             সব ছবি ও বিবরণ দেখুন <ArrowRight size={14} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </div> */}
 
       </div>
 
