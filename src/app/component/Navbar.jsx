@@ -1,11 +1,13 @@
-"use client"
+"use client";
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="bg-slate-950 text-white shadow-md border-b border-slate-800 sticky top-0 z-50 overflow-hidden">
@@ -22,9 +24,33 @@ export default function Navbar() {
 
           {/* ডেস্কটপ ন্যাভ লিংকসমূহ */}
           <nav className="hidden md:flex items-center space-x-8 text-base font-medium">
-            <Link href="/" className="hover:text-purple-400 transition-colors">হোম</Link>
-            <Link href="/books" className="hover:text-purple-400 transition-colors">বইয়ের তালিকা</Link>
-            <Link href="/notices" className="hover:text-purple-400 transition-colors">নোটিশ বোর্ড</Link>
+            <Link
+              href="/"
+              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-400 ${pathname === '/' ? 'text-white' : 'text-slate-300'}`}
+            >
+              <span>হোম</span>
+              {pathname === '/' && (
+                <span className="absolute -bottom-1 w-full h-1 bg-purple-400 rounded-full"></span>
+              )}
+            </Link>
+            <Link
+              href="/books"
+              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-400 ${pathname === '/books' ? 'text-white' : 'text-slate-300'}`}
+            >
+              <span>বইয়ের তালিকা</span>
+              {pathname === '/books' && (
+                <span className="absolute -bottom-1 w-full h-1 bg-purple-400 rounded-full"></span>
+              )}
+            </Link>
+            <Link
+              href="/notices"
+              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-400 ${pathname === '/notices' ? 'text-white' : 'text-slate-300'}`}
+            >
+              <span>নোটিশ বোর্ড</span>
+              {pathname === '/notices' && (
+                <span className="absolute -bottom-1 w-full h-1 bg-purple-400 rounded-full"></span>
+              )}
+            </Link>
           </nav>
         </div>
 
@@ -58,21 +84,24 @@ export default function Navbar() {
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-base font-medium hover:text-purple-400 transition-colors border-b border-slate-900"
+            className={`block py-2 text-base font-medium transition-colors border-b border-slate-900 ${pathname === '/' ? 'text-purple-400 font-semibold' : 'text-slate-300 hover:text-purple-400'
+              }`}
           >
             হোম
           </Link>
           <Link
             href="/books"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-base font-medium hover:text-purple-400 transition-colors border-b border-slate-900"
+            className={`block py-2 text-base font-medium transition-colors border-b border-slate-900 ${pathname === '/books' ? 'text-purple-400 font-semibold' : 'text-slate-300 hover:text-purple-400'
+              }`}
           >
             বইয়ের তালিকা
           </Link>
           <Link
             href="/notices"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-base font-medium hover:text-purple-400 transition-colors"
+            className={`block py-2 text-base font-medium transition-colors ${pathname === '/notices' ? 'text-purple-400 font-semibold' : 'text-slate-300 hover:text-purple-400'
+              }`}
           >
             নোটিশ বোর্ড
           </Link>
