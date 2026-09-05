@@ -31,13 +31,9 @@ export default function PresidentSecretary() {
       <div className="max-w-7xl mx-auto space-y-8 sm:space-y-12">
 
         {/* সেকশন হেডার */}
-        <div className="text-center space-y-3">
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            কার্যনির্বাহী <span className="text-purple-400">পরিষদ</span>
-          </h2>
-          <p className="text-slate-300 text-xs sm:text-base max-w-xl mx-auto px-2">
-            যাঁদের প্রজ্ঞায় ও পরিশ্রমে আলোর ভুবন পাঠাগার এগিয়ে চলেছে সামনের দিকে
-          </p>
+        <div className="text-center mb-8 sm:mb-12 space-y-2">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white">কার্যনির্বাহী <span className="text-purple-400">পরিষদ</span></h2>
+          <p className="text-white text-xs sm:text-base px-2">যাঁদের প্রজ্ঞায় ও পরিশ্রমে আলোর ভুবন পাঠাগার এগিয়ে চলেছে সামনের দিকে</p>
         </div>
 
         {/* প্রেসিডেন্ট ও সেক্রেটারি কার্ড */}
