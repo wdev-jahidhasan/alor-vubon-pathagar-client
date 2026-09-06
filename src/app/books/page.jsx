@@ -85,7 +85,7 @@ export default function BooksPage() {
         {/* পেজ হেডার */}
         <div className="text-center space-y-2">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">পাঠাগারের <span className="text-purple-400">বইয়ের তালিকা</span></h1>
-          <p className="text-slate-300 text-xs sm:text-sm md:text-base max-w-xl mx-auto px-2">
+          <p className="text-slate-300 text-xs sm:text-sm md:text-base mx-auto px-2">
             আমাদের পাঠাগারে থাকা ক্যাটাগরিভিত্তিক জনপ্রিয় বইসমূহ থেকে আপনার পছন্দের বইটি খুঁজে নিন।
           </p>
           <div className="pt-0.5">
