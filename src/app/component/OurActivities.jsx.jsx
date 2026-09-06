@@ -60,7 +60,7 @@ export default function OurActivities() {
           <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-950/60 border border-purple-800/40 flex items-center justify-center text-purple-400 mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
             <HeartHandshake size={20} className="sm:w-6 sm:h-6" />
           </div>
-          <h3 className="text-sm sm:text-lg font-bold text-white mb-2">স্বেচ্ছাসেবী কার্যক্রম</h3>
+          <h3 className="text-sm sm:text-lg font-bold text-white mb-2">সমাজসেবামূলক কার্যক্রম</h3>
 
           <div className="w-8 sm:w-12 h-[2px] bg-purple-500/50 rounded-full mb-2 sm:mb-3"></div>
 
