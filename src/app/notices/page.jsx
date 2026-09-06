@@ -5,7 +5,7 @@ export default function NoticesPage() {
   const notices = [];
 
   return (
-    <div className="min-h-screen bg-slate-950 text-white pt-6 sm:pt-10 pb-12 px-3 sm:px-6 lg:px-8">
+    <div className="bg-slate-950 text-white pt-6 sm:pt-10 pb-12 px-3 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto space-y-6 sm:space-y-8">
 
         {/* পেজ হেডার */}
@@ -25,7 +25,7 @@ export default function NoticesPage() {
             {notices.map((notice, index) => (
               <div
                 key={index}
-                className="bg-slate-900/60 border border-slate-800 p-4 sm:p-6 rounded-2xl space-y-2 hover:border-purple-500/50 transition-all"
+                className="bg-slate-900/60 border border-slate-800 p-3 sm:p-4 rounded-xl space-y-1.5 hover:border-purple-500/50 transition-all"
               >
                 <div className="flex items-center justify-between text-xs text-purple-400">
                   <span className="flex items-center gap-1">
@@ -40,15 +40,32 @@ export default function NoticesPage() {
           </div>
         ) : (
           /* অ্যারে ফাঁকা থাকলে এই অংশটি দেখাবে */
-          <div className="text-center py-16 sm:py-24 px-4 bg-slate-900/40 rounded-2xl border border-slate-800/80 space-y-4">
-            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-500/10 text-purple-400 rounded-full flex items-center justify-center mx-auto border border-purple-500/20">
-              <AlertCircle size={28} />
+          <div className="text-center py-10 sm:py-16 px-4 bg-slate-900/40 rounded-xl border border-slate-800/80 space-y-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-purple-500/10 text-purple-400 rounded-full flex items-center justify-center mx-auto border border-purple-500/20">
+              <AlertCircle size={22} />
             </div>
-            <div className="space-y-1.5">
-              <h3 className="text-lg sm:text-xl font-bold text-white">কোনো নোটিশ নেই</h3>
+            <div className="space-y-1">
+              <h3 className="text-base sm:text-lg font-bold text-white">কোনো নোটিশ নেই</h3>
               <p className="text-slate-400 text-xs sm:text-sm mx-auto">
-                এখনো কোনো নোটিশ যোগ করা হয়নি। নতুন কোনো ঘোষণা এলে তা এখানে দেখতে পাবেন।
+                এখনো কোনো নোটিশ যোগ করা হয়নি। নতুন কোনো ঘোষণা এলে তা এখানে দেখতে পাবেন।
               </p>
+
+              {/* ফেসবুক পেজ লিংক সেকশন */}
+              <div className="pt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                নিয়মিত আপডেটের জন্য আমাদের{' '}
+                <a
+                  href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%AD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-400 font-bold hover:underline inline-flex items-center gap-1.5 mx-1 align-middle"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  <span>ফেসবুক পেজ</span>
+                </a>{' '}
+                ফলো করুন।
+              </div>
             </div>
           </div>
         )}

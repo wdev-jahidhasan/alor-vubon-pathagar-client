@@ -3,7 +3,7 @@ import { LogIn, PhoneCall } from 'lucide-react';
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white pt-10 sm:pt-16 pb-12 px-3 sm:px-6 lg:px-8 flex items-center justify-center">
+    <div className="bg-slate-950 text-white pt-10 sm:pt-12 pb-12 px-3 sm:px-6 lg:px-8 flex items-center justify-center">
       <div className="max-w-md w-full mx-auto space-y-6 bg-slate-900/60 border border-slate-800 p-6 sm:p-8 rounded-2xl shadow-xl text-center">
 
         {/* আইকন এবং হেডার */}
