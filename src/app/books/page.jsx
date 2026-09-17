@@ -3,83 +3,14 @@
 import React, { useState } from 'react';
 import { BookOpen, Star, Search } from 'lucide-react';
 import Link from 'next/link';
+import { books } from '@/data/booksData';
 
 export default function BooksPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('সব');
 
-  // প্রতিটি বইয়ের জন্য ইউনিক id যোগ করা হয়েছে
-  const books = [
-    {
-      id: "pather-panchali",
-      title: "পথের পাঁচালী",
-      writer: "বিভূতিভূষণ বন্দ্যোপাধ্যায়",
-      category: "উপন্যাস",
-      rating: "৪.৯",
-      image: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      id: "aguner-poroshmoni",
-      title: "আগুনের পরশমণি",
-      writer: "হুমায়ূন আহমেদ",
-      category: "মুক্তিযুদ্ধ",
-      rating: "৪.৮",
-      image: "https://images.unsplash.com/photo-1524578271613-d550eacf6090?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      id: "je-jole-agun-jole",
-      title: "যে জলে আগুন জ্বলে",
-      writer: "হেলাল হাফিজ",
-      category: "কাব্যগ্রন্থ",
-      rating: "৪.৭",
-      image: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      id: "a-tale-of-two-cities",
-      title: "এ টেল অব টু সিটিজ",
-      writer: "চার্লস ডিকেন্স",
-      category: "অনুবাদ",
-      rating: "৪.৯",
-      image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      id: "payer-awaj-pawa-jay",
-      title: "পায়ের আওয়াজ পাওয়া যায়",
-      writer: "সৈয়দ শামসুল হক",
-      category: "নাটক",
-      rating: "৪.৮",
-      image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      id: "kobitar-kotha",
-      title: "কবিতার কথা",
-      writer: "জীবনানন্দ দাশ",
-      category: "প্রবন্ধ",
-      rating: "৪.৬",
-      image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      id: "sagorer-rohosyopuri",
-      title: "সাগরের রহস্যপুরী",
-      writer: "আবদুল্লাহ আল মুতী শরফুদ্দিন",
-      category: "বিজ্ঞান",
-      rating: "৪.৯",
-      image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400&auto=format&fit=crop"
-    },
-    {
-      id: "deshe-bideshe",
-      title: "দেশে ‍বিদেশে",
-      writer: "সৈয়দ মুজতবা আলী",
-      category: "ভ্রমণ",
-      rating: "৪.৭",
-      image: "https://images.unsplash.com/photo-1495640388908-05fa85288e61?q=80&w=400&auto=format&fit=crop"
-    }
-  ];
-
-  // ইউনিক ক্যাটাগরি লিস্ট
   const categories = ['সব', ...new Set(books.map(book => book.category))];
 
-  // ফিল্টার লজিক
   const filteredBooks = books.filter(book => {
     const matchesSearch = book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       book.writer.toLowerCase().includes(searchTerm.toLowerCase());
@@ -95,7 +26,6 @@ export default function BooksPage() {
         <div className="text-center space-y-2">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">পাঠাগারের <span className="text-purple-400">বইয়ের তালিকা</span></h1>
 
-          {/* কল সেকশন */}
           <div className="pt-0.5">
             <p className="text-[11px] sm:text-xs md:text-sm text-slate-300 leading-relaxed px-2">
               বই সম্পর্কে আরো তথ্য জানতে অথবা পাঠাগারের সদস্য হওয়ার নিয়ম জানতে যোগাযোগ করুন এই নম্বরে:
@@ -105,7 +35,6 @@ export default function BooksPage() {
             </p>
           </div>
 
-          {/* ফেসবুক পেজ লিংক সেকশন */}
           <div className="pt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
             নিয়মিত আপডেটের জন্য আমাদের{' '}
             <a
@@ -114,9 +43,6 @@ export default function BooksPage() {
               rel="noopener noreferrer"
               className="text-purple-400 font-bold hover:underline inline-flex items-center gap-1.5 mx-1 align-middle"
             >
-              <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
               <span>ফেসবুক পেজ</span>
             </a>{' '}
             ফলো করুন।
@@ -125,8 +51,6 @@ export default function BooksPage() {
 
         {/* সার্চ বার এবং ফিল্টার সেকশন */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 bg-slate-900/60 p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-800">
-
-          {/* সার্চ ইনপুট */}
           <div className="relative w-full md:w-80">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={16} />
             <input
@@ -138,7 +62,6 @@ export default function BooksPage() {
             />
           </div>
 
-          {/* ক্যাটাগরি ফিল্টার বাটনস */}
           <div className="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 scrollbar-none">
             {categories.map((cat, index) => (
               <button
@@ -169,10 +92,10 @@ export default function BooksPage() {
                     alt={book.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-slate-950/85 backdrop-blur-md text-purple-300 text-[10px] sm:text-xs font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-purple-800/40 flex items-center gap-1">
+                  {/* <span className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-slate-950/85 backdrop-blur-md text-purple-300 text-[10px] sm:text-xs font-semibold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full border border-purple-800/40 flex items-center gap-1">
                     <Star size={10} className="fill-purple-400 text-purple-400 sm:w-3 sm:h-3" />
                     {book.rating}
-                  </span>
+                  </span> */}
                 </div>
 
                 <div className="p-2.5 sm:p-4 lg:p-5 flex flex-col flex-grow space-y-1 sm:space-y-2">
@@ -196,7 +119,6 @@ export default function BooksPage() {
             ))}
           </div>
         ) : (
-          /* কোনো বই না পাওয়া গেলে */
           <div className="text-center py-12 sm:py-16 space-y-3 bg-slate-900/30 rounded-2xl border border-slate-800">
             <p className="text-slate-400 text-sm sm:text-lg">দুঃখিত, আপনার অনুসন্ধানের সাথে মিলে কোনো বই পাওয়া যায়নি।</p>
             <button
