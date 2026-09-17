@@ -2,14 +2,16 @@
 
 import React, { useState } from 'react';
 import { BookOpen, Star, Search } from 'lucide-react';
+import Link from 'next/link';
 
 export default function BooksPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('সব');
 
-  // আপনার বইগুলোর ডেটা লিস্ট
+  // প্রতিটি বইয়ের জন্য ইউনিক id যোগ করা হয়েছে
   const books = [
     {
+      id: "pather-panchali",
       title: "পথের পাঁচালী",
       writer: "বিভূতিভূষণ বন্দ্যোপাধ্যায়",
       category: "উপন্যাস",
@@ -17,6 +19,7 @@ export default function BooksPage() {
       image: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=400&auto=format&fit=crop"
     },
     {
+      id: "aguner-poroshmoni",
       title: "আগুনের পরশমণি",
       writer: "হুমায়ূন আহমেদ",
       category: "মুক্তিযুদ্ধ",
@@ -24,6 +27,7 @@ export default function BooksPage() {
       image: "https://images.unsplash.com/photo-1524578271613-d550eacf6090?q=80&w=400&auto=format&fit=crop"
     },
     {
+      id: "je-jole-agun-jole",
       title: "যে জলে আগুন জ্বলে",
       writer: "হেলাল হাফিজ",
       category: "কাব্যগ্রন্থ",
@@ -31,6 +35,7 @@ export default function BooksPage() {
       image: "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?q=80&w=400&auto=format&fit=crop"
     },
     {
+      id: "a-tale-of-two-cities",
       title: "এ টেল অব টু সিটিজ",
       writer: "চার্লস ডিকেন্স",
       category: "অনুবাদ",
@@ -38,6 +43,7 @@ export default function BooksPage() {
       image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=400&auto=format&fit=crop"
     },
     {
+      id: "payer-awaj-pawa-jay",
       title: "পায়ের আওয়াজ পাওয়া যায়",
       writer: "সৈয়দ শামসুল হক",
       category: "নাটক",
@@ -45,6 +51,7 @@ export default function BooksPage() {
       image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=400&auto=format&fit=crop"
     },
     {
+      id: "kobitar-kotha",
       title: "কবিতার কথা",
       writer: "জীবনানন্দ দাশ",
       category: "প্রবন্ধ",
@@ -52,6 +59,7 @@ export default function BooksPage() {
       image: "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400&auto=format&fit=crop"
     },
     {
+      id: "sagorer-rohosyopuri",
       title: "সাগরের রহস্যপুরী",
       writer: "আবদুল্লাহ আল মুতী শরফুদ্দিন",
       category: "বিজ্ঞান",
@@ -59,6 +67,7 @@ export default function BooksPage() {
       image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400&auto=format&fit=crop"
     },
     {
+      id: "deshe-bideshe",
       title: "দেশে ‍বিদেশে",
       writer: "সৈয়দ মুজতবা আলী",
       category: "ভ্রমণ",
@@ -98,9 +107,9 @@ export default function BooksPage() {
 
           {/* ফেসবুক পেজ লিংক সেকশন */}
           <div className="pt-2 text-xs sm:text-sm text-slate-300 leading-relaxed">
-            নিয়মিত আপডেটের জন্য আমাদের{' '}
+            নিয়মিত আপডেটের জন্য আমাদের{' '}
             <a
-              href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%AD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
+              href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%BD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-purple-400 font-bold hover:underline inline-flex items-center gap-1.5 mx-1 align-middle"
@@ -149,9 +158,9 @@ export default function BooksPage() {
         {/* বইয়ের গ্রিড */}
         {filteredBooks.length > 0 ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-            {filteredBooks.map((book, index) => (
+            {filteredBooks.map((book) => (
               <div
-                key={index}
+                key={book.id}
                 className="bg-slate-900/50 border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all group flex flex-col"
               >
                 <div className="h-28 sm:h-44 lg:h-52 overflow-hidden relative">
@@ -174,10 +183,13 @@ export default function BooksPage() {
                   <p className="text-slate-300 text-[11px] sm:text-sm pb-0.5 sm:pb-1 line-clamp-1">{book.writer}</p>
 
                   <div className="pt-auto mt-auto">
-                    <button className="w-full py-1.5 sm:py-2 bg-slate-800 hover:bg-violet-600 text-slate-200 hover:text-white text-[10px] sm:text-xs font-semibold rounded-lg sm:rounded-xl transition-colors flex items-center justify-center gap-1 cursor-pointer">
+                    <Link
+                      href={`/books/${book.id}`}
+                      className="w-full py-1.5 sm:py-2 bg-slate-800 hover:bg-violet-600 text-slate-200 hover:text-white text-[10px] sm:text-xs font-semibold rounded-lg sm:rounded-xl transition-colors flex items-center justify-center gap-1 cursor-pointer"
+                    >
                       <BookOpen size={12} className="sm:w-3.5 sm:h-3.5" />
                       বিস্তারিত পড়ুন
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
