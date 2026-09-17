@@ -6,18 +6,18 @@ import Link from 'next/link';
 import { books } from '@/data/booksData';
 
 const categoryFolderMap = {
-  "উপন্যাস": "novels",
+  "উপন্যাস": "novel",
   "মুক্তিযুদ্ধ": "war",
   "কাব্যগ্রন্থ": "poetry",
   "অনুবাদ": "translation",
   "নাটক": "drama",
-  "প্রবন্ধ": "essays",
+  "প্রবন্ধ": "essay",
   "বিজ্ঞান": "science",
   "ভ্রমণ": "travel",
   "ইতিহাস": "history",
-  "ছোটগল্প": "short-stories",
+  "ছোটগল্প": "short-story",
   "ধর্মীয়": "religious",
-  "অন্যান্য": "others"
+  "অন্যান্য": "other"
 };
 
 export default function BookDetailsPage({ params }) {
