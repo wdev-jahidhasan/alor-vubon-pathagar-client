@@ -1,6 +1,8 @@
+"use client"
 import { BookOpen, Star, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { books } from "@/data/booksData";
+import { motion } from "framer-motion";
 
 export default function PopularBooks() {
   const popularBooks = books.slice(0, 8);
@@ -9,18 +11,28 @@ export default function PopularBooks() {
     <section className="py-12 sm:py-16 lg:py-20 px-3 sm:px-6 lg:px-8 bg-slate-950 border-b border-slate-900">
       <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12">
 
-        {/* সেকশন হেডার */}
-        <div className="text-center mb-8 sm:mb-12 space-y-2">
+        {/* সেকশন হেডার অ্যানিমেশন */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-8 sm:mb-12 space-y-2"
+        >
           <h2 className="text-2xl sm:text-3xl font-bold text-white">জনপ্রিয় <span className="text-purple-400">বইসমূহ</span></h2>
           <p className="text-white text-xs sm:text-base px-2">পাঠকদের মাঝে সবচেয়ে বেশি পঠিত ও সমাদৃত বইগুলোর তালিকা</p>
-        </div>
+        </motion.div>
 
-        {/* বইয়ের কার্ড গ্রিড */}
+        {/* বইয়ের কার্ড গ্রিড ও প্রতিটা কার্ডের জন্য এন্ট্রান্স অ্যানিমেশন */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
-          {popularBooks.map((book) => (
-            <div
+          {popularBooks.map((book, index) => (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.85, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               key={book.id}
-              className="bg-slate-900/50 border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all group flex flex-col"
+              className="bg-slate-900/50 border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all group flex flex-col shadow-xl"
             >
               <div className="h-28 sm:h-40 lg:h-48 overflow-hidden relative">
                 <img
@@ -51,19 +63,25 @@ export default function PopularBooks() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* সব বই দেখুন বাটন */}
-        <div className="flex justify-center pt-2 sm:pt-4">
+        {/* সব বই দেখুন বাটন অ্যানিমেশন */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex justify-center pt-2 sm:pt-4"
+        >
           <Link
             href="/books"
             className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-xs sm:text-base lg:text-lg transition-colors group"
           >
             সব বই দেখুন <ArrowRight size={14} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-        </div>
+        </motion.div>
 
       </div>
     </section>
