@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { BookOpen, Star, Search } from 'lucide-react';
 import Link from 'next/link';
 import { books } from '@/data/booksData';
+import { motion } from 'framer-motion';
 
 export default function BooksPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -22,8 +23,13 @@ export default function BooksPage() {
     <div className="min-h-screen bg-slate-950 text-white pt-6 sm:pt-10 pb-12 px-3 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8">
 
-        {/* পেজ হেডার */}
-        <div className="text-center space-y-2">
+        {/* পেজ হেডার অ্যানিমেশন */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center space-y-2"
+        >
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">পাঠাগারের <span className="text-purple-400">বইয়ের তালিকা</span></h1>
 
           <div className="pt-0.5">
@@ -47,10 +53,15 @@ export default function BooksPage() {
             </a>{' '}
             ফলো করুন।
           </div>
-        </div>
+        </motion.div>
 
-        {/* সার্চ বার এবং ফিল্টার সেকশন */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 bg-slate-900/60 p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-800">
+        {/* সার্চ বার এবং ফিল্টার সেকশন অ্যানিমেশন */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4 bg-slate-900/60 p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-800 shadow-xl"
+        >
           <div className="relative w-full md:w-80">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" size={16} />
             <input
@@ -76,15 +87,22 @@ export default function BooksPage() {
               </button>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* বইয়ের গ্রিড */}
         {filteredBooks.length > 0 ? (
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-            {filteredBooks.map((book) => (
-              <div
+            {filteredBooks.map((book, index) => (
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: (index % 8) * 0.06,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
                 key={book.id}
-                className="bg-slate-900/50 border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all group flex flex-col"
+                className="bg-slate-900/50 border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all group flex flex-col shadow-xl"
               >
                 <div className="h-28 sm:h-44 lg:h-52 overflow-hidden relative">
                   <img
@@ -115,19 +133,24 @@ export default function BooksPage() {
                     </Link>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         ) : (
-          <div className="text-center py-12 sm:py-16 space-y-3 bg-slate-900/30 rounded-2xl border border-slate-800">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4 }}
+            className="text-center py-12 sm:py-16 space-y-3 bg-slate-900/30 rounded-2xl border border-slate-800 shadow-xl"
+          >
             <p className="text-slate-400 text-sm sm:text-lg">দুঃখিত, আপনার অনুসন্ধানের সাথে মিলে কোনো বই পাওয়া যায়নি।</p>
             <button
               onClick={() => { setSearchTerm(''); setSelectedCategory('সব'); }}
-              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm rounded-xl transition-colors cursor-pointer"
+              className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-xs sm:text-sm rounded-xl transition-colors cursor-pointer shadow-lg shadow-purple-600/30"
             >
               সব বই দেখুন
             </button>
-          </div>
+          </motion.div>
         )}
 
       </div>
