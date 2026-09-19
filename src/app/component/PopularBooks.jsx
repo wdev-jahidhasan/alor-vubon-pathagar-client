@@ -13,24 +13,28 @@ export default function PopularBooks() {
 
         {/* সেকশন হেডার অ্যানিমেশন */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-8 sm:mb-12 space-y-2"
         >
           <h2 className="text-2xl sm:text-3xl font-bold text-white">জনপ্রিয় <span className="text-purple-400">বইসমূহ</span></h2>
           <p className="text-white text-xs sm:text-base px-2">পাঠকদের মাঝে সবচেয়ে বেশি পঠিত ও সমাদৃত বইগুলোর তালিকা</p>
         </motion.div>
 
-        {/* বইয়ের কার্ড গ্রিড ও প্রতিটা কার্ডের জন্য এন্ট্রান্স অ্যানিমেশন */}
+        {/* বইয়ের কার্ড গ্রিড ও স্মুথ এন্ট্রান্স অ্যানিমেশন */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
           {popularBooks.map((book, index) => (
             <motion.div
-              initial={{ opacity: 0, scale: 0.85, y: 20 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1]
+              }}
               key={book.id}
               className="bg-slate-900/50 border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all group flex flex-col shadow-xl"
             >
@@ -71,8 +75,8 @@ export default function PopularBooks() {
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="flex justify-center pt-2 sm:pt-4"
         >
           <Link
