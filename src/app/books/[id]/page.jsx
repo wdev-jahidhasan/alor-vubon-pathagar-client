@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Star, ArrowLeft, Phone, FileText, MessageSquare, X } from 'lucide-react';
+import { BookOpen, Star, ArrowLeft, Phone, FileText, MessageSquare, X, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { books } from '@/data/booksData';
 
@@ -27,7 +27,6 @@ export default function BookDetailsPage({ params }) {
   const book = books.find((b) => b.id === id);
 
   const [reviews, setReviews] = useState([]);
-  const [hasPdf, setHasPdf] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ export default function BookDetailsPage({ params }) {
     // বাংলা ক্যাটাগরি থেকে সঠিক ইংরেজি ফোল্ডার নাম বের করা
     const folderName = categoryFolderMap[book.category] || book.category.toLowerCase();
 
-    // ১. ক্যাটাগরি অনুযায়ী রিভিউ ফেচ করা
+    // ক্যাটাগরি অনুযায়ী রিভিউ ফেচ করা
     async function fetchReviews() {
       try {
         const res = await fetch(`/reviewsAndPdfs/${folderName}/review.json`);
@@ -50,22 +49,7 @@ export default function BookDetailsPage({ params }) {
       }
     }
 
-    // ২. পিডিএফ ফাইল এক্সিস্ট করে কিনা চেক করা
-    async function checkPdf() {
-      try {
-        const res = await fetch(`/reviewsAndPdfs/${folderName}/${book.id}.pdf`, {
-          method: 'HEAD',
-        });
-        if (res.ok) {
-          setHasPdf(true);
-        }
-      } catch (error) {
-        setHasPdf(false);
-      }
-    }
-
     fetchReviews();
-    checkPdf();
   }, [book]);
 
   if (!book) {
@@ -122,13 +106,9 @@ export default function BookDetailsPage({ params }) {
               alt={book.title}
               className="w-full h-full object-cover"
             />
-            {/* <span className="absolute top-3 right-3 bg-slate-950/85 backdrop-blur-md text-purple-300 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full border border-purple-800/40 flex items-center gap-1.5 shadow-md">
-              <Star size={14} className="fill-purple-400 text-purple-400" />
-              {book.rating}
-            </span> */}
           </div>
 
-          {/* ডিটেইলস ও কন্ডিশনাল বাটন সেকশন */}
+          {/* ডিটেইলস ও বাটন সেকশন */}
           <div className="md:col-span-7 space-y-4 sm:space-y-6 flex flex-col justify-between">
             <div className="space-y-3">
               <span className="inline-block bg-purple-950/60 border border-purple-800/50 text-purple-300 text-xs sm:text-sm font-semibold px-3 py-1 rounded-full">
@@ -149,39 +129,26 @@ export default function BookDetailsPage({ params }) {
               </p>
             </div>
 
-            {/* শর্ত সাপেক্ষে পিডিএফ ও রিভিউ বাটন রেন্ডারিং */}
-            {(hasPdf || reviews.length > 0) && (
-              <div className="flex flex-wrap items-center gap-3 pt-2">
-                {hasPdf && (
-                  <>
-                    <a
-                      href={`/reviewsAndPdfs/${folderName}/${book.id}.pdf`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors flex items-center gap-2 shadow-lg shadow-emerald-600/20"
-                    >
-                      <FileText size={16} /> পিডিএফ পড়ুন
-                    </a>
-                    <a
-                      href={`/reviewsAndPdfs/${folderName}/${book.id}.pdf`}
-                      download
-                      className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors flex items-center gap-2 shadow-lg shadow-blue-600/20"
-                    >
-                      ডাউনলোড করুন
-                    </a>
-                  </>
-                )}
+            {/* ই-লাইব্রেরি ভিজিট করুন এবং রিভিউ বাটন */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <a
+                href="https://drive.google.com/drive/folders/1k6i68jIb_HB3E7PLouuqVs-PiKh0iQPM?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors flex items-center gap-2 shadow-lg shadow-emerald-600/20"
+              >
+                <ExternalLink size={16} /> ই-লাইব্রেরি ভিজিট করুন
+              </a>
 
-                {reviews.length > 0 && (
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors flex items-center gap-2 shadow-lg shadow-purple-600/30 cursor-pointer"
-                  >
-                    <MessageSquare size={16} /> রিভিউ দেখুন ({reviews.length})
-                  </button>
-                )}
-              </div>
-            )}
+              {reviews.length > 0 && (
+                <button
+                  onClick={() => setIsModalOpen(true)}
+                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors flex items-center gap-2 shadow-lg shadow-purple-600/30 cursor-pointer"
+                >
+                  <MessageSquare size={16} /> রিভিউ দেখুন ({reviews.length})
+                </button>
+              )}
+            </div>
 
             {/* যোগাযোগের বক্স */}
             <div className="bg-slate-950/60 border border-slate-800 rounded-xl p-4 space-y-3">
