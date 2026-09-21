@@ -19,7 +19,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="bn" className={`${hindSiliguri.variable} h-full`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-[#f9f4df] dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+      <body className="min-h-full flex flex-col">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           <main className="flex-grow">{children}</main>

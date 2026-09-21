@@ -18,53 +18,53 @@ export default function Navbar() {
 
   if (!mounted) {
     return (
-      <header className="text-slate-900 dark:text-white shadow-sm border-b border-amber-900/10 dark:border-slate-800 sticky top-0 z-50 h-20" />
+      <header className="bg-[#fdf7d2] dark:bg-slate-950 shadow-sm border-b border-amber-900/10 dark:border-slate-800 sticky top-0 z-50 h-20" />
     );
   }
 
   return (
-    <header className="text-slate-900 dark:text-white shadow-sm border-b border-amber-900/10 dark:border-slate-800 sticky top-0 z-50 overflow-hidden transition-colors duration-300">
+    <header className="bg-[#fdf7d2] dark:bg-slate-950 shadow-sm border-b border-amber-900/10 dark:border-slate-800 sticky top-0 z-50 overflow-hidden transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
 
         <div className="flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white focus:outline-none p-1 mr-2"
+            className="md:hidden text-slate-800 dark:text-slate-300 hover:text-black dark:hover:text-white focus:outline-none p-1 mr-2"
             aria-label="Toggle Menu"
           >
             {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
 
           {/* ডেস্কটপ ন্যাভ লিংকসমূহ */}
-          <nav className="hidden md:flex items-center space-x-8 text-base font-medium">
+          <nav className="hidden md:flex items-center space-x-8 text-base font-semibold">
             <Link
               href="/"
-              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-600 dark:hover:text-purple-400 ${pathname === '/' ? 'text-purple-600 dark:text-white font-semibold' : 'text-slate-600 dark:text-slate-300'
+              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/' ? 'text-purple-700 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
                 }`}
             >
               <span>হোম</span>
               {pathname === '/' && (
-                <span className="absolute -bottom-1 w-full h-1 bg-purple-600 dark:bg-purple-400 rounded-full"></span>
+                <span className="absolute -bottom-1 w-full h-1 bg-purple-700 dark:bg-purple-400 rounded-full"></span>
               )}
             </Link>
             <Link
               href="/books"
-              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-600 dark:hover:text-purple-400 ${pathname === '/books' ? 'text-purple-600 dark:text-white font-semibold' : 'text-slate-600 dark:text-slate-300'
+              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/books' ? 'text-purple-700 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
                 }`}
             >
               <span>বইয়ের তালিকা</span>
               {pathname === '/books' && (
-                <span className="absolute -bottom-1 w-full h-1 bg-purple-600 dark:bg-purple-400 rounded-full"></span>
+                <span className="absolute -bottom-1 w-full h-1 bg-purple-700 dark:bg-purple-400 rounded-full"></span>
               )}
             </Link>
             <Link
               href="/notices"
-              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-600 dark:hover:text-purple-400 ${pathname === '/notices' ? 'text-purple-600 dark:text-white font-semibold' : 'text-slate-600 dark:text-slate-300'
+              className={`relative flex flex-col items-center py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/notices' ? 'text-purple-700 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
                 }`}
             >
               <span>নোটিশ বোর্ড</span>
               {pathname === '/notices' && (
-                <span className="absolute -bottom-1 w-full h-1 bg-purple-600 dark:bg-purple-400 rounded-full"></span>
+                <span className="absolute -bottom-1 w-full h-1 bg-purple-700 dark:bg-purple-400 rounded-full"></span>
               )}
             </Link>
           </nav>
@@ -76,7 +76,7 @@ export default function Navbar() {
             <div className="relative w-8 h-8 md:w-10 md:h-10 flex-shrink-0">
               <Image src="/images/avp-logo-16-9.jpeg" alt="আলোর ভুবন পাঠাগার লোগো" fill className="object-contain" priority />
             </div>
-            <span className="text-sm md:text-xl font-bold tracking-wide text-purple-600 dark:text-purple-400 whitespace-nowrap">
+            <span className="text-sm md:text-xl font-bold tracking-wide text-purple-700 dark:text-purple-400 whitespace-nowrap">
               আলোর ভুবন পাঠাগার
             </span>
           </Link>
@@ -86,10 +86,10 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <button
             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-            className="p-2 rounded-lg bg-amber-100/60 dark:bg-slate-900 text-slate-700 dark:text-slate-300 hover:bg-amber-100 dark:hover:bg-slate-800 transition-colors focus:outline-none"
+            className="p-2 rounded-lg bg-amber-200/30 dark:bg-slate-900 text-slate-800 dark:text-slate-300 hover:bg-amber-200/80 dark:hover:bg-slate-800 transition-colors focus:outline-none"
             aria-label="Toggle Theme"
           >
-            {resolvedTheme === 'dark' ? <Sun size={20} className="text-amber-400" /> : <Moon size={20} className="text-slate-700" />}
+            {resolvedTheme === 'dark' ? <Sun size={20} className="text-amber-400" /> : <Moon size={20} className="text-slate-800" />}
           </button>
 
           <Link
@@ -104,11 +104,11 @@ export default function Navbar() {
 
       {/* মোবাইল ড্রপডাউন মেনু */}
       {isOpen && (
-        <div className="md:hidden border-b border-amber-900/10 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3 shadow-lg transition-colors">
+        <div className="md:hidden bg-[#f9f4df] dark:bg-slate-950 border-b border-amber-900/10 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3 shadow-lg transition-colors">
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className={`block py-2 text-base font-medium transition-colors border-b border-amber-900/5 dark:border-slate-900 ${pathname === '/' ? 'text-purple-600 dark:text-purple-400 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400'
+            className={`block py-2 text-base font-semibold transition-colors border-b border-amber-900/5 dark:border-slate-900 ${pathname === '/' ? 'text-purple-700 dark:text-purple-400' : 'text-slate-800 dark:text-slate-300 hover:text-purple-700 dark:hover:text-purple-400'
               }`}
           >
             হোম
@@ -116,7 +116,7 @@ export default function Navbar() {
           <Link
             href="/books"
             onClick={() => setIsOpen(false)}
-            className={`block py-2 text-base font-medium transition-colors border-b border-amber-900/5 dark:border-slate-900 ${pathname === '/books' ? 'text-purple-600 dark:text-purple-400 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400'
+            className={`block py-2 text-base font-semibold transition-colors border-b border-amber-900/5 dark:border-slate-900 ${pathname === '/books' ? 'text-purple-700 dark:text-purple-400' : 'text-slate-800 dark:text-slate-300 hover:text-purple-700 dark:hover:text-purple-400'
               }`}
           >
             বইয়ের তালিকা
@@ -124,7 +124,7 @@ export default function Navbar() {
           <Link
             href="/notices"
             onClick={() => setIsOpen(false)}
-            className={`block py-2 text-base font-medium transition-colors ${pathname === '/notices' ? 'text-purple-600 dark:text-purple-400 font-semibold' : 'text-slate-700 dark:text-slate-300 hover:text-purple-600 dark:hover:text-purple-400'
+            className={`block py-2 text-base font-semibold transition-colors ${pathname === '/notices' ? 'text-purple-700 dark:text-purple-400' : 'text-slate-800 dark:text-slate-300 hover:text-purple-700 dark:hover:text-purple-400'
               }`}
           >
             নোটিশ বোর্ড
