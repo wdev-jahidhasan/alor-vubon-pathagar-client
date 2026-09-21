@@ -1,9 +1,9 @@
 import { Hind_Siliguri } from "next/font/google";
+import { ThemeProvider } from "next-themes";
 import "./globals.css";
 import Navbar from "./component/Navbar";
 import Footer from "./component/Footer";
 
-// নেক্সট জেএস-এর স্ট্যান্ডার্ড ফন্ট লোডার
 const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind-siliguri",
   subsets: ["latin", "bengali"],
@@ -18,11 +18,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="bn" className={`${hindSiliguri.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-slate-950 text-slate-100 antialiased">
-        <Navbar />
-        {children}
-        <Footer />
+    <html lang="bn" className={`${hindSiliguri.variable} h-full`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-[#f9f4df] dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased transition-colors duration-300">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <Navbar />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
