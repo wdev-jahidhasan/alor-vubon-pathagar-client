@@ -1,8 +1,7 @@
 "use client"
 import { useState } from "react";
-import { Calendar, MapPin, X, ArrowRight, Eye } from "lucide-react";
+import { Calendar, MapPin, X, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 
 export default function PhotoGallery() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -82,10 +81,10 @@ export default function PhotoGallery() {
     : photos.filter(p => p.category === activeTab);
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-3 sm:px-6 lg:px-8 bg-slate-950 border-b border-slate-900">
+    <section className="py-12 sm:py-16 lg:py-20 px-3 sm:px-6 lg:px-8 bg-[#ffffee] dark:bg-slate-950 border-b border-amber-900/10 dark:border-slate-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12">
 
-        {/* সেকশন হেডার অ্যানিমেশন */}
+        {/* সেকশন হেডার */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,13 +92,15 @@ export default function PhotoGallery() {
           transition={{ duration: 0.5 }}
           className="text-center mb-6 sm:mb-8 space-y-2"
         >
-          <h2 className="text-2xl sm:text-3xl font-bold text-white flex items-center justify-center gap-2">
-            ফটো <span className="text-purple-400">গ্যালারি</span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white flex items-center justify-center gap-2">
+            ফটো <span className="text-purple-700 dark:text-purple-400">গ্যালারি</span>
           </h2>
-          <p className="text-white text-xs sm:text-base px-2">আলোর ভুবন পাঠাগারের প্রতিটি আয়োজনের তথ্যবহুল ও নান্দনিক চিত্রমালা</p>
+          <p className="text-slate-700 dark:text-slate-300 text-xs sm:text-base px-2">
+            আলোর ভুবন পাঠাগারের প্রতিটি আয়োজনের তথ্যবহুল ও নান্দনিক চিত্রমালা
+          </p>
         </motion.div>
 
-        {/* ক্যাটাগরি ফিল্টার ট্যাব অ্যানিমেশন */}
+        {/* ক্যাটাগরি ফিল্টার ট্যাব */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -112,8 +113,8 @@ export default function PhotoGallery() {
               key={idx}
               onClick={() => setActiveTab(cat)}
               className={`px-3 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer border ${activeTab === cat
-                ? "bg-purple-600 text-white border-purple-500 shadow-lg shadow-purple-600/30"
-                : "bg-slate-900/60 text-slate-300 border-slate-800 hover:border-purple-500/50 hover:text-white"
+                ? "bg-purple-700 dark:bg-purple-600 text-white border-purple-700 dark:border-purple-500 shadow-lg shadow-purple-700/20 dark:shadow-purple-600/30"
+                : "bg-amber-100/50 dark:bg-slate-900/60 text-slate-800 dark:text-slate-300 border-amber-900/10 dark:border-slate-800 hover:border-purple-600/50 dark:hover:border-purple-500/50 hover:text-purple-700 dark:hover:text-white"
                 }`}
             >
               {cat}
@@ -121,7 +122,7 @@ export default function PhotoGallery() {
           ))}
         </motion.div>
 
-        {/* গ্যালারি গ্রিড ও প্রতিটা কার্ডের জন্য এন্ট্রান্স ও এক্সিট অ্যানিমেশন */}
+        {/* গ্যালারি গ্রিড */}
         <motion.div
           layout
           className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6"
@@ -136,22 +137,22 @@ export default function PhotoGallery() {
                 transition={{ duration: 0.4, delay: index * 0.05 }}
                 key={photo.title}
                 onClick={() => setSelectedImage(photo)}
-                className="group bg-slate-900/60 border border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-purple-500/50 transition-all duration-300 cursor-pointer flex flex-col shadow-xl"
+                className="group bg-white dark:bg-slate-900/60 border border-amber-900/10 dark:border-slate-800 rounded-xl sm:rounded-2xl overflow-hidden hover:border-purple-600/50 dark:hover:border-purple-500/50 transition-all duration-300 cursor-pointer flex flex-col shadow-sm dark:shadow-xl"
               >
                 {/* ইমেজ কন্টেইনার */}
-                <div className="h-32 sm:h-44 lg:h-48 overflow-hidden relative">
+                <div className="h-32 sm:h-44 lg:h-48 overflow-hidden relative bg-amber-50 dark:bg-slate-950">
                   <img
                     src={photo.image}
                     alt={photo.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <span className="absolute top-2 right-2 bg-slate-950/80 backdrop-blur-md text-purple-300 text-[9px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border border-purple-800/40">
+                  <span className="absolute top-2 right-2 bg-[#ffffee]/90 dark:bg-slate-950/80 backdrop-blur-md text-purple-700 dark:text-purple-300 text-[9px] sm:text-xs font-semibold px-2 py-0.5 rounded-full border border-purple-800/20 dark:border-purple-800/40">
                     {photo.category}
                   </span>
 
-                  {/* হোভার করলে আইকন দেখাবে */}
+                  {/* হোভার ওভারলে */}
                   <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="p-2.5 bg-purple-600/90 text-white rounded-full shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                    <span className="p-2.5 bg-purple-700 dark:bg-purple-600 text-white rounded-full shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
                       <Eye size={16} />
                     </span>
                   </div>
@@ -159,23 +160,23 @@ export default function PhotoGallery() {
 
                 {/* ইনফরমেশন বডি */}
                 <div className="p-2.5 sm:p-4 flex flex-col flex-grow space-y-1.5 sm:space-y-2">
-                  <h3 className="text-xs sm:text-sm lg:text-base font-bold text-white group-hover:text-purple-300 transition-colors line-clamp-1">
+                  <h3 className="text-xs sm:text-sm lg:text-base font-bold text-slate-900 dark:text-white group-hover:text-purple-700 dark:group-hover:text-purple-300 transition-colors line-clamp-1">
                     {photo.title}
                   </h3>
 
-                  <div className="w-8 h-[2px] bg-purple-500/60 rounded-full"></div>
+                  <div className="w-8 h-[2px] bg-purple-600/60 rounded-full"></div>
 
-                  <p className="text-white text-[10px] sm:text-xs line-clamp-2 leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-300 text-[10px] sm:text-xs line-clamp-2 leading-relaxed">
                     {photo.desc}
                   </p>
 
-                  <div className="pt-2 mt-auto border-t border-slate-800/80 space-y-1">
-                    <p className="text-white text-[9px] sm:text-[11px] flex items-center gap-1">
-                      <Calendar size={11} className="text-purple-400 shrink-0" />
+                  <div className="pt-2 mt-auto border-t border-amber-900/10 dark:border-slate-800/80 space-y-1">
+                    <p className="text-slate-600 dark:text-slate-400 text-[9px] sm:text-[11px] flex items-center gap-1">
+                      <Calendar size={11} className="text-purple-600 dark:text-purple-400 shrink-0" />
                       {photo.date}
                     </p>
-                    <p className="text-white text-[9px] sm:text-[11px] flex items-center gap-1">
-                      <MapPin size={11} className="text-purple-400 shrink-0" />
+                    <p className="text-slate-600 dark:text-slate-400 text-[9px] sm:text-[11px] flex items-center gap-1">
+                      <MapPin size={11} className="text-purple-600 dark:text-purple-400 shrink-0" />
                       {photo.location}
                     </p>
                   </div>
@@ -185,45 +186,35 @@ export default function PhotoGallery() {
           </AnimatePresence>
         </motion.div>
 
-        {/* সব ছবি দেখুন বাটন (কমেন্ট করা অবস্থায় রাখা হয়েছে) */}
-        {/* <div className="flex justify-center pt-2 sm:pt-4">
-          <Link 
-            href="/gallery" 
-            className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold text-xs sm:text-base lg:text-lg transition-colors group"
-          >
-            সব ছবি ও বিবরণ দেখুন <ArrowRight size={14} className="sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div> */}
-
       </div>
 
-      {/* ইনফরমেশনসহ লাইটবক্স মডাল অ্যানিমেশন */}
+      {/* লাইটবক্স মডাল */}
       <AnimatePresence>
         {selectedImage && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/90 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 dark:bg-slate-950/90 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="relative max-w-2xl w-full bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
+              className="relative max-w-2xl w-full bg-[#ffffee] dark:bg-slate-900 border border-amber-900/10 dark:border-slate-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]"
             >
 
               {/* হেডার / ক্লোজ বাটন */}
-              <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-slate-800 bg-slate-950">
-                <span className="text-xs sm:text-sm font-semibold text-purple-400">
+              <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-amber-900/10 dark:border-slate-800 bg-[#fbf7e4] dark:bg-slate-950">
+                <span className="text-xs sm:text-sm font-semibold text-purple-700 dark:text-purple-400">
                   {selectedImage.category} বিভাগ
                 </span>
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="p-1.5 text-slate-400 hover:text-white bg-slate-800/60 hover:bg-slate-800 rounded-full transition-colors cursor-pointer"
+                  className="p-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-amber-100/60 dark:bg-slate-800/60 hover:bg-amber-100 dark:hover:bg-slate-800 rounded-full transition-colors cursor-pointer"
                 >
                   <X size={18} />
                 </button>
               </div>
 
               {/* মডাল ইমেজ */}
-              <div className="bg-slate-950 flex items-center justify-center max-h-[50vh] overflow-hidden">
+              <div className="bg-amber-50/50 dark:bg-slate-950 flex items-center justify-center max-h-[50vh] overflow-hidden">
                 <img
                   src={selectedImage.image}
                   alt={selectedImage.title}
@@ -232,31 +223,31 @@ export default function PhotoGallery() {
               </div>
 
               {/* ডিটেইলস ইনফো */}
-              <div className="p-4 sm:p-6 space-y-3 overflow-y-auto bg-slate-900">
-                <h3 className="text-base sm:text-xl font-bold text-white">
+              <div className="p-4 sm:p-6 space-y-3 overflow-y-auto bg-[#ffffee] dark:bg-slate-900">
+                <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white">
                   {selectedImage.title}
                 </h3>
-                <p className="text-white text-xs sm:text-sm leading-relaxed">
+                <p className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
                   {selectedImage.desc}
                 </p>
 
-                <div className="flex flex-wrap gap-4 pt-2 border-t border-slate-800 text-xs sm:text-sm">
-                  <span className="text-white flex items-center gap-1.5">
-                    <Calendar size={14} className="text-purple-400" />
+                <div className="flex flex-wrap gap-4 pt-2 border-t border-amber-900/10 dark:border-slate-800 text-xs sm:text-sm">
+                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                    <Calendar size={14} className="text-purple-700 dark:text-purple-400" />
                     {selectedImage.date}
                   </span>
-                  <span className="text-white flex items-center gap-1.5">
-                    <MapPin size={14} className="text-purple-400" />
+                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                    <MapPin size={14} className="text-purple-700 dark:text-purple-400" />
                     {selectedImage.location}
                   </span>
                 </div>
               </div>
 
               {/* ফুটার */}
-              <div className="px-4 sm:px-6 py-3 border-t border-slate-800 bg-slate-950 text-right">
+              <div className="px-4 sm:px-6 py-3 border-t border-amber-900/10 dark:border-slate-800 bg-[#fbf7e4] dark:bg-slate-950 text-right">
                 <button
                   onClick={() => setSelectedImage(null)}
-                  className="px-5 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-medium rounded-xl transition-colors cursor-pointer"
+                  className="px-5 py-2 bg-amber-200/60 hover:bg-amber-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-medium rounded-xl transition-colors cursor-pointer"
                 >
                   বন্ধ করুন
                 </button>
