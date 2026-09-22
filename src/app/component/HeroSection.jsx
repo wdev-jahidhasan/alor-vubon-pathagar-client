@@ -4,11 +4,18 @@ import { BookOpen, Bell } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
+// Total 10 library and book related images
 const backgroundImages = [
-  "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1920&q=80",
+  // "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1920&q=80",
   "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1920&q=80",
   "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1920&q=80",
-  "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1920&q=80"
+  "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=1920&q=80",
+  // "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1920&q=80",
+  // "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1920&q=80",
+  // "https://images.unsplash.com/photo-1495640388908-05fa85288e61?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=1920&q=80",
+  // "https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=1920&q=80",
+  "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1920&q=80"
 ];
 
 export default function HeroSection() {
@@ -20,23 +27,21 @@ export default function HeroSection() {
 
   const [currentBgImage, setCurrentBgImage] = useState(backgroundImages[0]);
 
+  // স্লাইডশো লজিক
   useEffect(() => {
     let isMounted = true;
     let index = 0;
 
     const runSlideshow = async () => {
       while (isMounted) {
-        // ১. বর্তমান ইমেজ ৪ সেকেন্ড দেখাবে
         setCurrentBgImage(backgroundImages[index]);
         await new Promise((resolve) => setTimeout(resolve, 4000));
         if (!isMounted) break;
 
-        // ২. ইমেজ সরিয়ে নিয়ে শুধু বেস কালার (২ সেকেন্ডের জন্য) রাখা হবে
         setCurrentBgImage(null);
         await new Promise((resolve) => setTimeout(resolve, 2000));
         if (!isMounted) break;
 
-        // ৩. পরবর্তী ইনডেক্সে যাওয়া (লুপ মেইনটেইন করে)
         index = (index + 1) % backgroundImages.length;
       }
     };
@@ -79,7 +84,14 @@ export default function HeroSection() {
   return (
     <section className="relative overflow-hidden pt-24 pb-16 md:pt-36 md:pb-20 px-4 sm:px-6 lg:px-8 border-b border-amber-900/10 dark:border-slate-800 bg-[#ffffee] dark:bg-slate-950">
 
-      {/* ব্যাকগ্রাউন্ড স্লাইডশো উইথ কালার ট্রানজিশন */}
+      {/* ব্যাকগ্রাউন্ড ইমেজ ইনস্ট্যান্ট লোড করার জন্য ব্রাউজার ক্যাশে প্রি-লোড রাখা হিডেন ট্যাগ */}
+      <div className="hidden">
+        {backgroundImages.map((src, idx) => (
+          <img key={idx} src={src} alt="preload" />
+        ))}
+      </div>
+
+      {/* ব্যাকগ্রাউন্ড স্লাইডশো */}
       <div className="absolute inset-0 z-0 bg-[#ffffee] dark:bg-slate-950">
         <AnimatePresence mode="wait">
           {currentBgImage && (
@@ -95,15 +107,17 @@ export default function HeroSection() {
           )}
         </AnimatePresence>
 
-        {/* লাইটে ক্রিম শেড এবং ডার্কে ডার্ক স্লেট ওভারলে */}
-        <div className="absolute inset-0 bg-[#ffffee]/30 dark:bg-slate-950/65 backdrop-blur-[0.5px]" />
+        {/* ব্যাকগ্রাউন্ড ওভারলে */}
+        <div className="absolute inset-0 bg-[#ffffee]/10 dark:bg-slate-950/40 backdrop-blur-[0.5px]" />
       </div>
 
       <div className="max-w-7xl mx-auto text-center relative z-10 space-y-12">
 
-        <div className="space-y-6">
+        {/* মিনি স্ক্রিন বা মোবাইল ফ্রেন্ডলি আরও বেশি ট্রান্সপারেন্ট ব্যাকগ্রাউন্ড কার্ড */}
+        <div className="space-y-6 bg-[#ffffee]/15 dark:bg-slate-950/20 backdrop-blur-md p-6 sm:p-10 rounded-2xl md:rounded-3xl shadow-lg border border-amber-900/10 dark:border-slate-800/40 max-w-4xl mx-auto">
+
           {/* টাইপরাইটার অ্যানিমেশন ব্যাজ */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ffffee]/90 dark:bg-purple-950/80 border border-amber-900/20 dark:border-purple-800/50 text-slate-800 dark:text-white text-xs md:text-sm font-medium shadow-lg shadow-amber-900/5 dark:shadow-purple-900/20">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#ffffee]/70 dark:bg-purple-950/60 border border-amber-900/20 dark:border-purple-800/50 text-slate-800 dark:text-white text-xs md:text-sm font-medium shadow-sm">
             <BookOpen size={16} className="text-purple-700 dark:text-white shrink-0" />
             <span className="text-slate-900 dark:text-white tracking-wide">
               {currentText}
@@ -147,7 +161,7 @@ export default function HeroSection() {
             </Link>
             <Link
               href="/notices"
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#ffffee]/90 hover:bg-[#ffffee] dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-950 dark:text-slate-200 border border-amber-900/20 dark:border-slate-700 px-8 py-3.5 rounded-xl font-semibold transition-all shadow-sm"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#ffffee]/80 hover:bg-[#ffffee] dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-950 dark:text-slate-200 border border-amber-900/20 dark:border-slate-700 px-8 py-3.5 rounded-xl font-semibold transition-all shadow-sm"
             >
               <Bell size={18} />
               নোটিশ বোর্ড
@@ -163,22 +177,22 @@ export default function HeroSection() {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center pt-6 border-t border-amber-900/10 dark:border-slate-800/60"
         >
           {/* স্ট্যাটস কার্ড */}
-          <div className="p-4 sm:p-5 bg-[#ffffee]/80 dark:bg-slate-900/90 backdrop-blur-md border border-amber-900/15 dark:border-slate-800/80 rounded-xl shadow-sm">
+          <div className="p-4 sm:p-5 bg-[#ffffee]/20 dark:bg-slate-950/30 backdrop-blur-md border border-amber-900/10 dark:border-slate-800/50 rounded-xl shadow-sm">
             <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-700 dark:text-purple-400 mb-1">১৫০০+</h4>
             <p className="text-xs sm:text-sm text-slate-900 dark:text-white">মোট বইয়ের সংখ্যা</p>
           </div>
 
-          <div className="p-4 sm:p-5 bg-[#ffffee]/80 dark:bg-slate-900/90 backdrop-blur-md border border-amber-900/15 dark:border-slate-800/80 rounded-xl shadow-sm">
+          <div className="p-4 sm:p-5 bg-[#ffffee]/20 dark:bg-slate-950/30 backdrop-blur-md border border-amber-900/10 dark:border-slate-800/50 rounded-xl shadow-sm">
             <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-700 dark:text-purple-400 mb-1">১৫০+</h4>
             <p className="text-xs sm:text-sm text-slate-900 dark:text-white">সক্রিয় পাঠক</p>
           </div>
 
-          <div className="p-4 sm:p-5 bg-[#ffffee]/80 dark:bg-slate-900/90 backdrop-blur-md border border-amber-900/15 dark:border-slate-800/80 rounded-xl shadow-sm">
+          <div className="p-4 sm:p-5 bg-[#ffffee]/20 dark:bg-slate-950/30 backdrop-blur-md border border-amber-900/10 dark:border-slate-800/50 rounded-xl shadow-sm">
             <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-700 dark:text-purple-400 mb-1">১০+</h4>
             <p className="text-xs sm:text-sm text-slate-900 dark:text-white">বইয়ের ক্যাটাগরি</p>
           </div>
 
-          <div className="p-4 sm:p-5 bg-[#ffffee]/80 dark:bg-slate-900/90 backdrop-blur-md border border-amber-900/15 dark:border-slate-800/80 rounded-xl shadow-sm">
+          <div className="p-4 sm:p-5 bg-[#ffffee]/20 dark:bg-slate-950/30 backdrop-blur-md border border-amber-900/10 dark:border-slate-800/50 rounded-xl shadow-sm">
             <h4 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-700 dark:text-purple-400 mb-1">১০+</h4>
             <p className="text-xs sm:text-sm text-slate-900 dark:text-white">সফল ইভেন্ট</p>
           </div>
