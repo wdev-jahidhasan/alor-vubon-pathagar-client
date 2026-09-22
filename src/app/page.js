@@ -10,7 +10,7 @@ import MarqueeNotice from "./component/MarqueeNotice";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col">
+    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col overflow-x-hidden">
       <MarqueeNotice></MarqueeNotice>
       <HeroSection />
       <PhotoGallery></PhotoGallery>
