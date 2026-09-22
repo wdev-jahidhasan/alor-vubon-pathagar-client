@@ -18,12 +18,12 @@ export default function Navbar() {
 
   if (!mounted) {
     return (
-      <nav className="bg-[#fdf7d2] dark:bg-slate-950 shadow-sm border-b border-amber-900/10 dark:border-slate-800 sticky top-0 z-50 h-16 sm:h-20 w-full" />
+      <nav className="bg-[#ffffee] dark:bg-slate-950 shadow-sm border-b border-amber-900/10 dark:border-slate-800 sticky top-0 z-50 h-16 sm:h-20 w-full" />
     );
   }
 
   return (
-    <nav className="bg-[#fdf7d2] dark:bg-slate-950 shadow-sm border-b border-amber-900/10 dark:border-slate-800 sticky top-0 z-50 w-full overflow-hidden">
+    <nav className="bg-[#ffffee] dark:bg-slate-950 shadow-sm border-b border-amber-900/10 dark:border-slate-800 sticky top-0 z-50 w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-1 sm:gap-4">
 
         {/* Left Side: Mobile Menu Button & Desktop Nav */}
@@ -40,7 +40,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-6 text-base font-semibold">
             <Link
               href="/"
-              className={`relative py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/' ? 'text-slate-800 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
+              className={`relative py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/' ? 'text-slate-900 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
                 }`}
             >
               হোম
@@ -50,7 +50,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/books"
-              className={`relative py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/books' ? 'text-slate-800 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
+              className={`relative py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/books' ? 'text-slate-900 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
                 }`}
             >
               বইয়ের তালিকা
@@ -60,7 +60,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/notices"
-              className={`relative py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/notices' ? 'text-slate-800 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
+              className={`relative py-2 transition-colors hover:text-purple-700 dark:hover:text-purple-400 ${pathname === '/notices' ? 'text-slate-900 dark:text-white font-bold' : 'text-slate-800 dark:text-slate-300'
                 }`}
             >
               নোটিশ বোর্ড
@@ -88,7 +88,7 @@ export default function Navbar() {
         <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
           <button
             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-            className="p-1.5 sm:p-2 rounded-lg bg-amber-200/30 dark:bg-slate-900 text-slate-800 dark:text-slate-300 transition-colors hover:bg-amber-200/50"
+            className="p-1.5 sm:p-2 rounded-lg bg-amber-100/40 dark:bg-slate-900 text-slate-800 dark:text-slate-300 transition-colors hover:bg-amber-100/80 dark:hover:bg-slate-800"
             aria-label="Toggle Theme"
           >
             {resolvedTheme === 'dark' ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} />}
@@ -106,25 +106,25 @@ export default function Navbar() {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-[#f9f4df] dark:bg-slate-950 border-b border-amber-900/10 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+        <div className="md:hidden bg-[#fbf7e4] dark:bg-slate-950 border-b border-amber-900/10 dark:border-slate-800 px-4 pt-2 pb-6 space-y-3 shadow-lg">
           <Link
             href="/"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 dark:text-slate-300 border-b border-amber-900/5 dark:border-slate-900"
+            className="block py-2 text-sm font-semibold text-slate-900 dark:text-slate-300 border-b border-amber-900/5 dark:border-slate-900"
           >
             হোম
           </Link>
           <Link
             href="/books"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 dark:text-slate-300 border-b border-amber-900/5 dark:border-slate-900"
+            className="block py-2 text-sm font-semibold text-slate-900 dark:text-slate-300 border-b border-amber-900/5 dark:border-slate-900"
           >
             বইয়ের তালিকা
           </Link>
           <Link
             href="/notices"
             onClick={() => setIsOpen(false)}
-            className="block py-2 text-sm font-semibold text-slate-800 dark:text-slate-300"
+            className="block py-2 text-sm font-semibold text-slate-900 dark:text-slate-300"
           >
             নোটিশ বোর্ড
           </Link>
