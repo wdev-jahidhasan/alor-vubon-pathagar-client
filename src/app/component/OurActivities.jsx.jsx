@@ -27,47 +27,57 @@ export default function OurActivities() {
   ];
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 px-3 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-b border-slate-900">
+    // সেকশন এখন সম্পূর্ণ উইডথ জুড়ে লাইট ও ডার্ক থিম নেবে
+    <section className="py-12 sm:py-16 lg:py-20 px-3 sm:px-6 lg:px-8 w-full border-b border-amber-900/15 dark:border-slate-900 bg-[#ffffee] dark:bg-slate-950 transition-colors duration-300">
 
-      {/* সেকশনের মূল হেডিং অ্যানিমেশন */}
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        className="text-center mb-8 sm:mb-12 space-y-2"
-      >
-        <h2 className="text-2xl sm:text-3xl font-bold text-white">আমাদের <span className="text-purple-400">কার্যক্রমসমূহ</span></h2>
-        <p className="text-white text-xs sm:text-base px-2">পাঠকদের জ্ঞানচর্চা ও সমাজের উন্নয়নে আমাদের নিয়মিত নানা উদ্যোগ</p>
-      </motion.div>
+      {/* কন্টেন্টগুলো মাঝে রাখার জন্য কন্টেইনার */}
+      <div className="max-w-7xl mx-auto">
+        {/* সেকশনের মূল হেডিং অ্যানিমেশন */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="text-center mb-8 sm:mb-12 space-y-2"
+        >
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+            আমাদের <span className="text-purple-700 dark:text-purple-400">কার্যক্রমসমূহ</span>
+          </h2>
+          <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-base px-2">
+            পাঠকদের জ্ঞানচর্চা ও সমাজের উন্নয়নে আমাদের নিয়মিত নানা উদ্যোগ
+          </p>
+        </motion.div>
 
-      {/* ছোট স্ক্রিনে ২টা এবং বড় স্ক্রিনে ৪টি কার্ড ও স্মুথ এন্ট্রান্স অ্যানিমেশন */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-        {activities.map((item, index) => (
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{
-              duration: 0.6,
-              delay: index * 0.08,
-              ease: [0.22, 1, 0.36, 1]
-            }}
-            key={index}
-            className="bg-slate-900/60 border border-slate-800 p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl hover:border-purple-500/50 transition-all group flex flex-col shadow-xl"
-          >
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-950/60 border border-purple-800/40 flex items-center justify-center text-purple-400 mb-3 sm:mb-4 group-hover:scale-110 transition-transform">
-              {item.icon}
-            </div>
-            <h3 className="text-sm sm:text-lg font-bold text-white mb-2">{item.title}</h3>
+        {/* ছোট স্ক্রিনে ২টা এবং বড় স্ক্রিনে ৪টি কার্ড ও স্মুথ এন্ট্রান্স অ্যানিমেশন */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+          {activities.map((item, index) => (
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.08,
+                ease: [0.22, 1, 0.36, 1]
+              }}
+              key={index}
+              className="bg-white dark:bg-slate-900/60 border border-amber-900/10 dark:border-slate-800 p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl hover:border-purple-500/50 transition-all group flex flex-col shadow-sm dark:shadow-xl"
+            >
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-100 dark:bg-purple-950/60 border border-purple-200 dark:border-purple-800/40 flex items-center justify-center text-purple-700 dark:text-purple-400 mb-3 sm:mb-4 group-hover:scale-110 transition-transform shadow-inner">
+                {item.icon}
+              </div>
+              <h3 className="text-sm sm:text-lg font-bold text-slate-900 dark:text-white mb-2">
+                {item.title}
+              </h3>
 
-            <div className="w-8 sm:w-12 h-[2px] bg-purple-500/50 rounded-full mb-2 sm:mb-3"></div>
+              <div className="w-8 sm:w-12 h-[2px] bg-purple-500/50 rounded-full mb-2 sm:mb-3"></div>
 
-            <p className="text-white text-[11px] sm:text-sm leading-relaxed">
-              {item.desc}
-            </p>
-          </motion.div>
-        ))}
+              <p className="text-slate-600 dark:text-slate-300 text-[11px] sm:text-sm leading-relaxed">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
     </section>
