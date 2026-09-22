@@ -16,14 +16,14 @@ export default function EmergencyContacts({ isOpen, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4">
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200">
+      <div className="bg-[#ffffee] dark:bg-slate-900 border border-amber-900/10 dark:border-slate-800 rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-200 transition-colors duration-300">
 
         {/* মোডাল হেডার */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-800 bg-slate-950">
-          <h3 className="text-xl font-bold text-purple-400">জরুরি নম্বরসমূহ</h3>
+        <div className="flex items-center justify-between px-6 py-4 border-b border-amber-900/10 dark:border-slate-800 bg-amber-50/60 dark:bg-slate-950">
+          <h3 className="text-xl font-bold text-purple-700 dark:text-purple-400">জরুরি নম্বরসমূহ</h3>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white text-2xl font-bold transition-colors cursor-pointer"
+            className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white text-2xl font-bold transition-colors cursor-pointer"
           >
             &times;
           </button>
@@ -34,12 +34,12 @@ export default function EmergencyContacts({ isOpen, onClose }) {
           {contacts.map((item, index) => (
             <div
               key={index}
-              className="flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl bg-slate-950/60 border border-slate-800/80 hover:border-purple-500/50 transition-all gap-2"
+              className="flex flex-col sm:flex-row sm:items-center justify-between p-3.5 rounded-xl bg-white dark:bg-slate-950/80 border border-amber-900/10 dark:border-slate-800 hover:border-purple-600/50 dark:hover:border-purple-500/50 transition-all gap-2 shadow-sm text-center sm:text-left"
             >
-              <span className="text-sm font-medium text-slate-200">{item.title}</span>
+              <span className="text-sm font-semibold text-slate-800 dark:text-slate-200">{item.title}</span>
               <a
                 href={`tel:${item.number}`}
-                className="text-sm font-bold text-purple-400 hover:text-purple-300 bg-purple-500/10 px-3 py-1 rounded-lg w-fit transition-colors"
+                className="text-sm font-extrabold text-purple-700 dark:text-white bg-purple-100/80 dark:bg-purple-900/80 border border-purple-300/60 dark:border-purple-700 px-3.5 py-1 rounded-lg w-fit mx-auto sm:mx-0 transition-colors hover:bg-purple-200 dark:hover:bg-purple-800"
               >
                 {item.number}
               </a>
@@ -48,10 +48,10 @@ export default function EmergencyContacts({ isOpen, onClose }) {
         </div>
 
         {/* মোডাল ফুটার */}
-        <div className="px-6 py-4 border-t border-slate-800 bg-slate-950 flex justify-end">
+        <div className="px-6 py-4 border-t border-amber-900/10 dark:border-slate-800 bg-amber-50/60 dark:bg-slate-950 flex justify-end">
           <button
             onClick={onClose}
-            className="px-5 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium rounded-xl transition-colors cursor-pointer"
+            className="px-5 py-2 bg-purple-700 hover:bg-purple-800 text-white text-sm font-medium rounded-xl transition-colors cursor-pointer shadow-md shadow-purple-700/25"
           >
             বন্ধ করুন
           </button>
