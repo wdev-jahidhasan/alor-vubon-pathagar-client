@@ -28,32 +28,51 @@ export default function BooksPage() {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center space-y-2"
+          className="text-center space-y-3"
         >
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
             পাঠাগারের <span className="text-purple-700 dark:text-purple-400">বইয়ের তালিকা</span>
           </h1>
 
-          <div className="pt-0.5">
-            <p className="text-[11px] sm:text-xs md:text-sm text-slate-700 dark:text-slate-300 leading-relaxed px-2">
-              বই সম্পর্কে আরো তথ্য জানতে অথবা পাঠাগারের সদস্য হওয়ার নিয়ম জানতে যোগাযোগ করুন এই নম্বরে:
-              <a href="tel:+8801XXXXXXXXX" className="text-purple-700 dark:text-purple-400 font-bold hover:underline ml-1.5 inline-block">
+          <div className="max-w-lg mx-auto space-y-2 px-2">
+            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              বই সম্পর্কে আরো তথ্য জানতে অথবা পাঠাগারের সদস্য হওয়ার নিয়ম জানতে যোগাযোগ করুন এই নম্বরে:{' '}
+              <a href="tel:+8801XXXXXXXXX" className="text-purple-700 dark:text-purple-400 font-bold hover:underline inline-block">
                 +৮৮০ ১XXXXXXXXX
               </a>
             </p>
-          </div>
 
-          <div className="pt-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
-            নিয়মিত আপডেটের জন্য আমাদের{' '}
-            <a
-              href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%BD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-purple-700 dark:text-purple-400 font-bold hover:underline inline-flex items-center gap-1.5 mx-1 align-middle"
-            >
-              <span>ফেসবুক পেজ</span>
-            </a>{' '}
-            ফলো করুন।
+            {/* ফেসবুক পেজ এবং ই-লাইব্রেরি লিংক সেকশন */}
+            <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed space-y-1.5 pt-1">
+              <div>
+                নিয়মিত আপডেটের জন্য আমাদের{' '}
+                <a
+                  href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%AD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-700 dark:text-purple-400 font-bold hover:underline inline-flex items-center gap-1.5 mx-1 align-middle"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  <span>ফেসবুক পেজ</span>
+                </a>{' '}
+                ফলো করুন।
+              </div>
+
+              <div>
+                অনলাইনে বই পড়তে আমাদের{' '}
+                <a
+                  href="https://drive.google.com/drive/folders/1k6i68jIb_HB3E7PLouuqVs-PiKh0iQPM?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-purple-700 dark:text-purple-400 font-bold hover:underline"
+                >
+                  ই-লাইব্রেরি
+                </a>{' '}
+                ভিজিট করুন।
+              </div>
+            </div>
           </div>
         </motion.div>
 
