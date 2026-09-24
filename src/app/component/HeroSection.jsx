@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import { BookOpen, Bell } from "lucide-react";
+import { BookOpen, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -159,13 +159,15 @@ export default function HeroSection() {
               <BookOpen size={18} />
               বইয়ের তালিকা দেখুন
             </Link>
-            <Link
-              href="/notices"
+            <a
+              href="https://drive.google.com/drive/folders/1k6i68jIb_HB3E7PLouuqVs-PiKh0iQPM?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto flex items-center justify-center gap-2 bg-[#ffffee]/80 hover:bg-[#ffffee] dark:bg-slate-800/80 dark:hover:bg-slate-700 text-slate-950 dark:text-slate-200 border border-amber-900/20 dark:border-slate-700 px-8 py-3.5 rounded-xl font-semibold transition-all shadow-sm"
             >
-              <Bell size={18} />
-              নোটিশ বোর্ড
-            </Link>
+              <Globe size={18} />
+              ই-লাইব্রেরি ভিজিট করুন
+            </a>
           </motion.div>
         </div>
 
