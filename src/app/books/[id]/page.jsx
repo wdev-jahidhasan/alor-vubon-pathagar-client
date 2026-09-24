@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { BookOpen, Star, ArrowLeft, Phone, FileText, MessageSquare, X, ExternalLink, Share2, Check } from 'lucide-react';
+import { BookOpen, Star, ArrowLeft, MessageSquare, X, ExternalLink, Share2, Check } from 'lucide-react';
 import Link from 'next/link';
 import { books } from '@/data/booksData';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -173,34 +173,32 @@ export default function BookDetailsPage({ params }) {
             {/* যোগাযোগের ও অন্যান্য অপশন বক্স */}
             <div className="bg-amber-50/60 dark:bg-slate-950/80 border border-amber-900/10 dark:border-slate-800/80 rounded-2xl p-4 space-y-3 shadow-inner">
               <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
-                এই বইটি সংগ্রহ করতে বা পাঠাগার সম্পর্কে জানতে যোগাযোগ করুন:
+                বইটি সংগ্রহ করতে বা পাঠাগারের সদস্য হতে যোগাযোগ করুন:
               </p>
 
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-1">
                 <a
                   href="tel:+8801XXXXXXXXX"
-                  className="px-4 py-2 bg-white dark:bg-slate-900 text-purple-700 dark:text-purple-400 font-bold text-xs sm:text-sm rounded-xl border border-amber-900/10 dark:border-slate-800 shadow-sm hover:underline flex items-center gap-2"
+                  className="px-3 py-2.5 bg-white dark:bg-slate-900 text-purple-700 dark:text-purple-400 font-bold text-[11px] sm:text-xs rounded-xl border border-amber-900/10 dark:border-slate-800 shadow-sm hover:underline flex items-center justify-center text-center whitespace-nowrap"
                 >
-                  <Phone size={14} /> +৮৮০ ১XXXXXXXXX
+                  ০১৭-------------
                 </a>
 
-                <div className="flex items-center gap-2">
-                  <a
-                    href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%AD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-3 py-2 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-semibold text-xs rounded-xl border border-blue-200/50 dark:border-blue-800/40 transition-colors flex items-center gap-1.5"
-                  >
-                    ফেসবুক পেজ
-                  </a>
+                <a
+                  href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%AD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-2.5 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-semibold text-[11px] sm:text-xs rounded-xl border border-blue-200/50 dark:border-blue-800/40 transition-colors flex items-center justify-center text-center shadow-sm"
+                >
+                  ফেসবুক পেজ
+                </a>
 
-                  <Link
-                    href="/"
-                    className="px-3.5 py-2 bg-purple-700 hover:bg-purple-800 text-white font-semibold text-xs rounded-xl transition-colors shadow-md shadow-purple-700/20"
-                  >
-                    সদস্য ফরম
-                  </Link>
-                </div>
+                <Link
+                  href="/"
+                  className="px-3 py-2.5 bg-purple-50 dark:bg-purple-950/40 hover:bg-purple-100 dark:hover:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-semibold text-[11px] sm:text-xs rounded-xl border border-purple-200/60 dark:border-purple-800/40 transition-colors flex items-center justify-center text-center shadow-sm"
+                >
+                  সদস্য ফরম
+                </Link>
               </div>
             </div>
 
