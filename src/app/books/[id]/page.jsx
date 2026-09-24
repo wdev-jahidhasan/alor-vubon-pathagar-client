@@ -86,12 +86,12 @@ export default function BookDetailsPage({ params }) {
 
       <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 relative z-10">
 
-        {/* ব্যাক বাটন এবং ফেসবুক নোটিশ */}
+        {/* ব্যাক বাটন এবং শেয়ার বাটন */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3"
+          className="flex justify-between items-center"
         >
           <Link
             href="/books"
@@ -101,28 +101,13 @@ export default function BookDetailsPage({ params }) {
             বইয়ের তালিকায় ফিরে যান
           </Link>
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={handleShare}
-              className="px-3 py-1.5 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-amber-900/10 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-xl text-xs font-medium transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
-            >
-              {copied ? <Check size={14} className="text-emerald-500 dark:text-emerald-400" /> : <Share2 size={14} />}
-              {copied ? 'লিংক কপি হয়েছে!' : 'শেয়ার করুন'}
-            </button>
-
-            <div className="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 hidden md:block">
-              নিয়মিত আপডেটের জন্য আমাদের{' '}
-              <a
-                href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%AD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-purple-700 dark:text-purple-400 font-bold hover:underline inline-flex items-center gap-1 mx-1"
-              >
-                ফেসবুক পেজ
-              </a>{' '}
-              ফলো করুন।
-            </div>
-          </div>
+          <button
+            onClick={handleShare}
+            className="px-3.5 py-2 bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-amber-900/10 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white rounded-xl text-xs font-medium transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+          >
+            {copied ? <Check size={14} className="text-emerald-500 dark:text-emerald-400" /> : <Share2 size={14} />}
+            {copied ? 'লিংক কপি হয়েছে!' : 'শেয়ার করুন'}
+          </button>
         </motion.div>
 
         {/* মূল কার্ড */}
@@ -185,24 +170,37 @@ export default function BookDetailsPage({ params }) {
               )}
             </div>
 
-            {/* যোগাযোগের বক্স */}
+            {/* যোগাযোগের ও অন্যান্য অপশন বক্স */}
             <div className="bg-amber-50/60 dark:bg-slate-950/80 border border-amber-900/10 dark:border-slate-800/80 rounded-2xl p-4 space-y-3 shadow-inner">
               <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300">
                 এই বইটি সংগ্রহ করতে বা পাঠাগার সম্পর্কে জানতে যোগাযোগ করুন:
               </p>
-              <div className="flex flex-wrap items-center gap-3">
+
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
                 <a
                   href="tel:+8801XXXXXXXXX"
-                  className="px-4 py-2 bg-purple-700 hover:bg-purple-800 text-white font-semibold text-xs sm:text-sm rounded-xl transition-colors flex items-center gap-2 shadow-md shadow-purple-700/25"
+                  className="px-4 py-2 bg-white dark:bg-slate-900 text-purple-700 dark:text-purple-400 font-bold text-xs sm:text-sm rounded-xl border border-amber-900/10 dark:border-slate-800 shadow-sm hover:underline flex items-center gap-2"
                 >
-                  <Phone size={14} /> কল করুন: +৮৮০ ১XXXXXXXXX
+                  <Phone size={14} /> +৮৮০ ১XXXXXXXXX
                 </a>
-                <Link
-                  href="/books"
-                  className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-semibold text-xs sm:text-sm rounded-xl transition-colors flex items-center gap-2 border border-amber-900/10 dark:border-slate-700/60"
-                >
-                  <BookOpen size={14} /> আরও বই দেখুন
-                </Link>
+
+                <div className="flex items-center gap-2">
+                  <a
+                    href="https://www.facebook.com/people/%E0%A6%86%E0%A6%B2%E0%A7%8B%E0%A6%B0-%E0%A6%AD%E0%A7%81%E0%A6%AC%E0%A6%A8-%E0%A6%AA%E0%A6%BE%E0%A6%A0%E0%A6%BE%E0%A6%97%E0%A6%BE%E0%A6%B0-Alor-Vubon-Pathagar/100064773873791/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-2 bg-blue-50 dark:bg-blue-950/40 hover:bg-blue-100 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-semibold text-xs rounded-xl border border-blue-200/50 dark:border-blue-800/40 transition-colors flex items-center gap-1.5"
+                  >
+                    ফেসবুক পেজ
+                  </a>
+
+                  <Link
+                    href="/"
+                    className="px-3.5 py-2 bg-purple-700 hover:bg-purple-800 text-white font-semibold text-xs rounded-xl transition-colors shadow-md shadow-purple-700/20"
+                  >
+                    সদস্য ফরম
+                  </Link>
+                </div>
               </div>
             </div>
 
