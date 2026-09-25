@@ -29,6 +29,7 @@ export default function BookDetailsPage({ params }) {
 
   const [reviews, setReviews] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFormModalOpen, setIsFormModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -86,7 +87,7 @@ export default function BookDetailsPage({ params }) {
 
       <div className="max-w-5xl mx-auto space-y-6 sm:space-y-8 relative z-10">
 
-        {/* ব্যাক বাটন এবং শেয়ার বাটন */}
+        {/* ব্যাক বাটন এবং শেয়ার বাটন */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -162,6 +163,7 @@ export default function BookDetailsPage({ params }) {
 
               {reviews.length > 0 && (
                 <button
+                  type="button"
                   onClick={() => setIsModalOpen(true)}
                   className="px-4 py-2.5 bg-purple-700 hover:bg-purple-800 text-white font-semibold text-xs sm:text-sm rounded-xl transition-all duration-300 flex items-center gap-2 shadow-lg shadow-purple-700/25 hover:scale-[1.02] cursor-pointer"
                 >
@@ -193,12 +195,16 @@ export default function BookDetailsPage({ params }) {
                   ফেসবুক পেজ
                 </a>
 
-                <Link
-                  href="/"
-                  className="px-3 py-2.5 bg-purple-50 dark:bg-purple-950/40 hover:bg-purple-100 dark:hover:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-semibold text-[11px] sm:text-xs rounded-xl border border-purple-200/60 dark:border-purple-800/40 transition-colors flex items-center justify-center text-center shadow-sm"
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsFormModalOpen(true);
+                  }}
+                  className="px-3 py-2.5 bg-purple-50 dark:bg-purple-950/40 hover:bg-purple-100 dark:hover:bg-purple-900/50 text-purple-700 dark:text-purple-300 font-semibold text-[11px] sm:text-xs rounded-xl border border-purple-200/60 dark:border-purple-800/40 transition-colors flex items-center justify-center text-center shadow-sm cursor-pointer"
                 >
                   সদস্য ফরম
-                </Link>
+                </button>
               </div>
             </div>
 
@@ -221,6 +227,7 @@ export default function BookDetailsPage({ params }) {
               <div className="flex items-center justify-between border-b border-amber-900/10 dark:border-slate-800 pb-3">
                 <h3 className="text-xl font-bold text-purple-700 dark:text-purple-400">পাঠকদের রিভিউ</h3>
                 <button
+                  type="button"
                   onClick={() => setIsModalOpen(false)}
                   className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white cursor-pointer p-1.5 rounded-xl hover:bg-amber-100/60 dark:hover:bg-slate-800 transition-colors"
                 >
@@ -240,6 +247,57 @@ export default function BookDetailsPage({ params }) {
                     <p className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">{rev.review}</p>
                   </div>
                 ))}
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* সদস্য ফরম মডাল (Google Form Embed) */}
+      <AnimatePresence>
+        {isFormModalOpen && (
+          <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="bg-[#ffffee] dark:bg-slate-900 border border-amber-900/10 dark:border-slate-800 rounded-3xl max-w-4xl w-full p-4 sm:p-6 space-y-4 relative h-[90vh] flex flex-col shadow-2xl"
+            >
+              <div className="flex items-center justify-between border-b border-amber-900/10 dark:border-slate-800 pb-3">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-lg sm:text-xl font-bold text-purple-700 dark:text-purple-400">পাঠাগারের সদস্য ফরম</h3>
+                  <a
+                    href="https://docs.google.com/forms/d/1FV5E9iroVe1c7zK5VWh0ASdjrbGow4skdTEcbJTQSVs/viewform?edit_requested=true"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 ml-3"
+                  >
+                    <ExternalLink size={14} /> নতুন ট্যাবে খুলুন
+                  </a>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setIsFormModalOpen(false)}
+                  className="text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white cursor-pointer p-1.5 rounded-xl hover:bg-amber-100/60 dark:hover:bg-slate-800 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              {/* গুগল ফর্ম আইফ্রেম */}
+              <div className="flex-1 w-full rounded-2xl overflow-hidden border border-amber-900/10 dark:border-slate-800 bg-white">
+                <iframe
+                  src="https://docs.google.com/forms/d/1FV5E9iroVe1c7zK5VWh0ASdjrbGow4skdTEcbJTQSVs/viewform?embedded=true"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  marginHeight="0"
+                  marginWidth="0"
+                  className="w-full h-full"
+                >
+                  লোড হচ্ছে...
+                </iframe>
               </div>
             </motion.div>
           </div>
