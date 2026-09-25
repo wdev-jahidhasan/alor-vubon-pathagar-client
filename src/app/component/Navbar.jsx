@@ -1,10 +1,10 @@
-"use client";
+'use client';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, UserPlus } from 'lucide-react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -84,7 +84,7 @@ export default function Navbar() {
           </span>
         </Link>
 
-        {/* Right Side: Theme Toggle & Login */}
+        {/* Right Side: Theme Toggle & Member Link */}
         <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
           <button
             onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
@@ -94,12 +94,14 @@ export default function Navbar() {
             {resolvedTheme === 'dark' ? <Sun size={16} className="text-amber-400" /> : <Moon size={16} />}
           </button>
 
-          <Link
-            href="/login"
-            className="bg-violet-600 hover:bg-violet-700 text-white px-2.5 py-1 md:px-5 md:py-2.5 rounded-lg text-xs md:text-sm font-semibold whitespace-nowrap shadow-sm transition-colors"
+          <a
+            href="https://docs.google.com/forms/d/1FV5E9iroVe1c7zK5VWh0ASdjrbGow4skdTEcbJTQSVs/viewform?edit_requested=true"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-violet-600 hover:bg-violet-700 text-white px-2.5 py-1 md:px-4 md:py-2 rounded-lg text-xs md:text-sm font-semibold whitespace-nowrap shadow-sm transition-colors flex items-center gap-1.5"
           >
-            লগইন
-          </Link>
+            <UserPlus size={16} /> সদস্য হোন
+          </a>
         </div>
 
       </div>
