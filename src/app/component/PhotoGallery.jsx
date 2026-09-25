@@ -15,7 +15,7 @@ export default function PhotoGallery() {
       category: "উৎসব",
       date: "জুলাই ২০২৬",
       location: "পাঠাগার চত্বর",
-      desc: "গ্রীষ্মের ছুটির অবসরে স্থানীয় পাঠকদের বইমুখী করতে পাঠাগার প্রাঙ্গণে তিন দিনব্যাপী বর্ণাঢ্য গ্রীষ্মকালীন বইমেলা ও উন্মুক্ত পাঠচক্রের আয়োজন করা হয়...",
+      desc: "গ্রীষ্মের ছুটির অবসরে স্থানীয় পাঠকদের বইমুখী করতে পাঠাগার প্রাঙ্গণে তিন দিনব্যাপী বর্ণাঢ্য গ্রীষ্মকালীন বইমেলা ও উন্মুক্ত পাঠচক্রের আয়োজন করা হয়। এই মেলায় বিভিন্ন প্রকাশনীর উপন্যাস, কবিতা, ইতিহাস, বিজ্ঞান ও ছোটগল্পের সমাহার ঘটেছিল, যা বইপ্রেমীদের মাঝে দারুণ উদ্দীপনা সৃষ্টি করে। প্রতিদিন বিকেলে বসেছিল লেখক, কবি ও পাঠকদের প্রাণবন্ত আড্ডা এবং মুক্ত আলোচনা। তরুণ প্রজন্মকে প্রযুক্তির আসক্তি থেকে দূরে রেখে বইয়ের পাতায় ফিরিয়ে আনতে এবং তাদের মননশীলতা বিকাশের লক্ষ্যে এমন আয়োজন অত্যন্ত গুরুত্বপূর্ণ ভূমিকা পালন করেছে। মেলায় আগত পাঠকরা তাদের পছন্দের বই সংগ্রহ করার পাশাপাশি সাহিত্য নিয়ে নিজেদের মতামত ও অনুভূতি প্রকাশ করেন, যা পুরো প্রাঙ্গণকে এক অন্যরকম সাহিত্যমুখর পরিবেশে রূপান্তর করেছিল। পাঠাগার কর্তৃপক্ষ ভবিষ্যতেও এ ধরনের আয়োজন নিয়মিত চালিয়ে যাওয়ার প্রত্যয় ব্যক্ত করেছেন।",
       image: "https://images.unsplash.com/photo-1506880018603-83d5b814b5a6?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -23,7 +23,7 @@ export default function PhotoGallery() {
       category: "উৎসব",
       date: "মে ২০২৬",
       location: "পাঠাগার মিলনায়তন",
-      desc: "বছরজুড়ে বিভিন্ন প্রতিযোগিতায় বিজয়ী শিক্ষার্থী ও পাঠকদের মাঝে পুরস্কার বিতরণ এবং মনোজ্ঞ সাংস্কৃতিক অনুষ্ঠান",
+      desc: "বছরজুড়ে বিভিন্ন প্রতিযোগিতায় বিজয়ী শিক্ষার্থী ও পাঠকদের মাঝে পুরস্কার বিতরণ এবং মনোজ্ঞ সাংস্কৃতিক অনুষ্ঠান। উক্ত অনুষ্ঠানে প্রধান অতিথি হিসেবে উপস্থিত ছিলেন স্থানীয় বিশিষ্ট ব্যক্তিবর্গ এবং তারা পাঠাগারের উত্তরোত্তর সাফল্য কামনা করেন।",
       image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -31,7 +31,7 @@ export default function PhotoGallery() {
       category: "সমাজসেবা",
       date: "মার্চ ২০২৬",
       location: "গ্রামের কেন্দ্রীয় মাঠ",
-      desc: "বিনামূল্যে চিকিৎসা পরামর্শ, রক্ত গ্রুপ পরীক্ষা ও ওষুধ বিতরণ কার্যক্রমের একটি বিশেষ মুহূর্ত",
+      desc: "বিনামূল্যে চিকিৎসা পরামর্শ, রক্ত গ্রুপ পরীক্ষা ও ওষুধ বিতরণ কার্যক্রমের একটি বিশেষ মুহূর্ত। এলাকার শতাধিক দুস্থ ও সাধারণ মানুষকে এই সেবার আওতায় নিয়ে আসা হয় এবং বিশেষজ্ঞ চিকিৎসকরা সেবা প্রদান করেন।",
       image: "https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -39,7 +39,7 @@ export default function PhotoGallery() {
       category: "উৎসব",
       date: "ফেব্রুয়ারি ২০২৬",
       location: "পাঠাগার প্রাঙ্গণ ও শহিদ মিনার",
-      desc: "ভাষা শহীদদের স্মরণে প্রভাতফেরী, ফুল অর্পণ এবং মাতৃভাষার মর্যাদা রক্ষায় বিশেষ আলোচনা সভা",
+      desc: "ভাষা শহীদদের স্মরণে প্রভাতফেরী, ফুল অর্পণ এবং মাতৃভাষার মর্যাদা রক্ষায় বিশেষ আলোচনা সভা। তরুণ সমাজকে ভাষা আন্দোলনের সঠিক ইতিহাস ও আত্মত্যাগের মহিমা সম্পর্কে সচেতন করতে এই বিশেষ আয়োজন করা হয়।",
       image: "https://images.unsplash.com/photo-1516962215378-7fa2e137ae93?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -47,7 +47,7 @@ export default function PhotoGallery() {
       category: "সমাজসেবা",
       date: "ডিসেম্বর ২০২৫",
       location: "গ্রামের মূল চত্বর",
-      desc: "শীতার্থ মানুষের মাঝে উষ্ণ কাপড় বিতরণের সময় ধারণকৃত একটি বিশেষ দৃশ্য",
+      desc: "শীতার্থ মানুষের মাঝে উষ্ণ কাপড় বিতরণের সময় ধারণকৃত একটি বিশেষ দৃশ্য। পাঠাগারের তরুণ স্বেচ্ছাসেবকদের অক্লান্ত পরিশ্রমে এই সহায়তা কর্মসূচি অত্যন্ত সফলভাবে পরিচালিত হয়।",
       image: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -55,7 +55,7 @@ export default function PhotoGallery() {
       category: "প্রতিযোগিতা",
       date: "সেপ্টেম্বর ২০২৫",
       location: "পাঠাগার হলরুম",
-      desc: "অংশগ্রহণকারী শিশুদের উৎসাহ দিতে আয়োজিত আনন্দঘন চিত্রাঙ্কন প্রতিযোগিতা",
+      desc: "অংশগ্রহণকারী শিশুদের উৎসাহ দিতে আয়োজিত আনন্দঘন চিত্রাঙ্কন প্রতিযোগিতা। শিশুরা তাদের রঙিন তুলির ছোঁয়ায় ও সৃজনশীলতার মাধ্যমে নিখুঁতভাবে ফুটিয়ে তোলে চিত্রকলার নানা রূপ।",
       image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -63,7 +63,7 @@ export default function PhotoGallery() {
       category: "সমাজসেবা",
       date: "জুলাই ২০২৫",
       location: "পাঠাগার ও আশেপাশের এলাকা",
-      desc: "পরিবেশ রক্ষার বার্তা নিয়ে পাঠাগার প্রাঙ্গণ ও রাস্তার পাশে বিভিন্ন ধরনের গাছের চারা রোপণ করা হয়",
+      desc: "পরিবেশ রক্ষার বার্তা নিয়ে পাঠাগার প্রাঙ্গণ ও রাস্তার পাশে বিভিন্ন ধরনের গাছের চারা রোপণ করা হয়। ভবিষ্যৎ প্রজন্মের জন্য একটি বাসযোগ্য সবুজ পৃথিবী গড়ে তোলাই এই কর্মসূচির মূল লক্ষ্য।",
       image: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=600&auto=format&fit=crop"
     },
     {
@@ -71,7 +71,7 @@ export default function PhotoGallery() {
       category: "সভা",
       date: "এপ্রিল ২০২৫",
       location: "পাঠাগার সভা কক্ষ",
-      desc: "পাঠাগারের সার্বিক উন্নয়ন, নতুন সদস্য অন্তর্ভুক্তি এবং ভবিষ্যৎ কার্যক্রম নিয়ে কার্যনির্বাহী সভা",
+      desc: "পাঠাগারের সার্বিক উন্নয়ন, নতুন সদস্য অন্তর্ভুক্তি এবং ভবিষ্যৎ কার্যক্রম নিয়ে কার্যনির্বাহী সভা। সভার শেষ অংশে পাঠাগারকে আরও এগিয়ে নিতে গুরুত্বপূর্ণ বেশ কিছু সিদ্ধান্ত গৃহীত হয়।",
       image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=600&auto=format&fit=crop"
     }
   ];
@@ -188,7 +188,7 @@ export default function PhotoGallery() {
 
       </div>
 
-      {/* লাইটবক্স মডাল */}
+      {/* ডিটেইলস মডাল */}
       <AnimatePresence>
         {selectedImage && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 dark:bg-slate-950/90 backdrop-blur-md">
@@ -201,7 +201,7 @@ export default function PhotoGallery() {
             >
 
               {/* হেডার / ক্লোজ বাটন */}
-              <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-amber-900/10 dark:border-slate-800 bg-[#fbf7e4] dark:bg-slate-950">
+              <div className="flex items-center justify-between px-4 sm:px-6 py-3 border-b border-amber-900/10 dark:border-slate-800 bg-[#fbf7e4] dark:bg-slate-950 shrink-0">
                 <span className="text-xs sm:text-sm font-semibold text-purple-700 dark:text-purple-400">
                   {selectedImage.category} বিভাগ
                 </span>
@@ -213,30 +213,34 @@ export default function PhotoGallery() {
                 </button>
               </div>
 
-              {/* মডাল ইমেজ */}
-              <div className="bg-amber-50/50 dark:bg-slate-950 flex items-center justify-center max-h-[50vh] overflow-hidden">
-                <img
-                  src={selectedImage.image}
-                  alt={selectedImage.title}
-                  className="max-h-[50vh] w-auto object-contain"
-                />
-              </div>
+              {/* স্ক্রোলযোগ্য মডাল কন্টেন্ট এরিয়া */}
+              <div className="overflow-y-auto p-4 sm:p-6 space-y-4 bg-[#ffffee] dark:bg-slate-900 flex-grow">
+                {/* মডাল ইমেজ */}
+                <div className="w-full rounded-xl overflow-hidden bg-amber-50 dark:bg-slate-950 border border-amber-900/10 dark:border-slate-800">
+                  <img
+                    src={selectedImage.image}
+                    alt={selectedImage.title}
+                    className="w-full h-auto max-h-[40vh] object-cover mx-auto"
+                  />
+                </div>
 
-              {/* ডিটেইলস ইনফো */}
-              <div className="p-4 sm:p-6 space-y-3 overflow-y-auto bg-[#ffffee] dark:bg-slate-900">
-                <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white">
-                  {selectedImage.title}
-                </h3>
-                <p className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
-                  {selectedImage.desc}
-                </p>
+                {/* টাইটেল এবং সম্পূর্ণ বিবরণী */}
+                <div className="space-y-2.5">
+                  <h3 className="text-base sm:text-xl font-bold text-slate-900 dark:text-white leading-snug">
+                    {selectedImage.title}
+                  </h3>
+                  <p className="text-slate-700 dark:text-slate-300 text-xs sm:text-sm leading-relaxed whitespace-pre-line">
+                    {selectedImage.desc}
+                  </p>
+                </div>
 
-                <div className="flex flex-wrap gap-4 pt-2 border-t border-amber-900/10 dark:border-slate-800 text-xs sm:text-sm">
-                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                {/* তারিখ ও লোকেশন */}
+                <div className="flex flex-wrap gap-4 pt-3 border-t border-amber-900/10 dark:border-slate-800 text-xs sm:text-sm">
+                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5 font-medium">
                     <Calendar size={14} className="text-purple-700 dark:text-purple-400" />
                     {selectedImage.date}
                   </span>
-                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                  <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5 font-medium">
                     <MapPin size={14} className="text-purple-700 dark:text-purple-400" />
                     {selectedImage.location}
                   </span>
@@ -244,7 +248,7 @@ export default function PhotoGallery() {
               </div>
 
               {/* ফুটার */}
-              <div className="px-4 sm:px-6 py-3 border-t border-amber-900/10 dark:border-slate-800 bg-[#fbf7e4] dark:bg-slate-950 text-right">
+              <div className="px-4 sm:px-6 py-3 border-t border-amber-900/10 dark:border-slate-800 bg-[#fbf7e4] dark:bg-slate-950 text-right shrink-0">
                 <button
                   onClick={() => setSelectedImage(null)}
                   className="px-5 py-2 bg-amber-200/60 hover:bg-amber-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-xs sm:text-sm font-medium rounded-xl transition-colors cursor-pointer"
